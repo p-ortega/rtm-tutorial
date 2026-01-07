@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mf6rtm.utils package &mdash; mf6rtm  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mf6rtm
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">mf6rtm.utils package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mf6rtm.utils.utils">mf6rtm.utils.utils module</a><ul>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.add_charge_flag_to_species_in_solution"><code class="docutils literal notranslate"><span class="pre">add_charge_flag_to_species_in_solution()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.concentration_l_to_m3"><code class="docutils literal notranslate"><span class="pre">concentration_l_to_m3()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.concentration_m3_to_l"><code class="docutils literal notranslate"><span class="pre">concentration_m3_to_l()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.concentration_to_massrate"><code class="docutils literal notranslate"><span class="pre">concentration_to_massrate()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.concentration_volbulk_to_volwater"><code class="docutils literal notranslate"><span class="pre">concentration_volbulk_to_volwater()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.fill_missing_minerals"><code class="docutils literal notranslate"><span class="pre">fill_missing_minerals()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.flatten_list"><code class="docutils literal notranslate"><span class="pre">flatten_list()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.generate_equ_phases_block"><code class="docutils literal notranslate"><span class="pre">generate_equ_phases_block()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.generate_exchange_block"><code class="docutils literal notranslate"><span class="pre">generate_exchange_block()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.generate_kinetics_block"><code class="docutils literal notranslate"><span class="pre">generate_kinetics_block()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.generate_solution_block"><code class="docutils literal notranslate"><span class="pre">generate_solution_block()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.generate_surface_block"><code class="docutils literal notranslate"><span class="pre">generate_surface_block()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.get_compound_names"><code class="docutils literal notranslate"><span class="pre">get_compound_names()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.get_indices"><code class="docutils literal notranslate"><span class="pre">get_indices()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.handle_block"><code class="docutils literal notranslate"><span class="pre">handle_block()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.map_species_property_to_grid"><code class="docutils literal notranslate"><span class="pre">map_species_property_to_grid()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.parse_equilibriums_dataframe"><code class="docutils literal notranslate"><span class="pre">parse_equilibriums_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.parse_kinetics_dataframe"><code class="docutils literal notranslate"><span class="pre">parse_kinetics_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.prep_bins"><code class="docutils literal notranslate"><span class="pre">prep_bins()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.rearrange_copy_blocks"><code class="docutils literal notranslate"><span class="pre">rearrange_copy_blocks()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.solution_csv_to_dict"><code class="docutils literal notranslate"><span class="pre">solution_csv_to_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.solution_df_to_dict"><code class="docutils literal notranslate"><span class="pre">solution_df_to_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.utils.utils.surfaces_csv_to_dict"><code class="docutils literal notranslate"><span class="pre">surfaces_csv_to_dict()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mf6rtm.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mf6rtm</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">mf6rtm.utils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/mf6rtm.utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mf6rtm-utils-package">
+<h1>mf6rtm.utils package<a class="headerlink" href="#mf6rtm-utils-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mf6rtm.utils.utils">
+<span id="mf6rtm-utils-utils-module"></span><h2>mf6rtm.utils.utils module<a class="headerlink" href="#module-mf6rtm.utils.utils" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.add_charge_flag_to_species_in_solution">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">add_charge_flag_to_species_in_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['pH']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.add_charge_flag_to_species_in_solution" title="Link to this definition"></a></dt>
+<dd><p>Add ‘charge’ to species lines inside SOLUTION blocks in a PHREEQC input string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.concentration_l_to_m3">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">concentration_l_to_m3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.concentration_l_to_m3" title="Link to this definition"></a></dt>
+<dd><p>Convert M/L to M/m3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.concentration_m3_to_l">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">concentration_m3_to_l</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.concentration_m3_to_l" title="Link to this definition"></a></dt>
+<dd><p>Convert M/L to M/m3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.concentration_to_massrate">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">concentration_to_massrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.concentration_to_massrate" title="Link to this definition"></a></dt>
+<dd><p>Calculate mass rate from rate (L3/T) and concentration (M/L3)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.concentration_volbulk_to_volwater">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">concentration_volbulk_to_volwater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conc_volbulk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">porosity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.concentration_volbulk_to_volwater" title="Link to this definition"></a></dt>
+<dd><p>Calculate concentrations as volume of pore water from bulk volume and porosity</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.fill_missing_minerals">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">fill_missing_minerals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.fill_missing_minerals" title="Link to this definition"></a></dt>
+<dd><p>Fill missing minerals in all zones with zero parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data_dict</strong> (<em>dict</em>) – Dictionary with zone indices as keys and mineral dictionaries as values.
+Each mineral dictionary contains parameter names and values.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated dictionary with all minerals present in all zones.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Goethite&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;m0&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;si&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">}},</span>
+<span class="gp">... </span>    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Pyrite&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;m0&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;si&#39;</span><span class="p">:</span> <span class="mf">1.8</span><span class="p">}}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filled</span> <span class="o">=</span> <span class="n">fill_missing_minerals</span><span class="p">(</span><span class="n">data_dict</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filled</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Pyrite&#39;</span><span class="p">]</span>  <span class="c1"># Now exists with zeros</span>
+<span class="go">{&#39;m0&#39;: 0.0, &#39;si&#39;: 0.0}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.flatten_list">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">flatten_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.flatten_list" title="Link to this definition"></a></dt>
+<dd><p>Flatten a list of lists</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.generate_equ_phases_block">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">generate_equ_phases_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phases_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.generate_equ_phases_block" title="Link to this definition"></a></dt>
+<dd><p>Generate an EQUILIBRIUM_PHASES block for PHREEQC input script
+:type phases_dict: 
+:param phases_dict: A dictionary with phase names as keys and lists of saturation indices and amounts as values.
+:type phases_dict: dict
+:type i: 
+:param i: The block number.
+:type i: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>script</strong> – The EQUILIBRIUM_PHASES block as a string.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.generate_exchange_block">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">generate_exchange_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phases_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equilibrate_solutions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.generate_exchange_block" title="Link to this definition"></a></dt>
+<dd><p>Generate an EXCHANGE block for PHREEQC input script
+:param exchange_dict: A dictionary with species names as keys and exchange concentrations as values.
+:type exchange_dict: dict
+:type i: 
+:param i: The block number.
+:type i: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>script</strong> – The EXCHANGE block as a string.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.generate_kinetics_block">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">generate_kinetics_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kinetics_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.generate_kinetics_block" title="Link to this definition"></a></dt>
+<dd><p>Generate a KINETICS block for PHREEQC input script.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kinetics_dict</strong> (<em>dict</em>) – <p>Dictionary structured like:
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>”Pyrite”: {</dt><dd><p>“m0”: [0.04],
+“parms”: [3.42, 0.0, 0.5, 0.0],
+“formula”: “Pyrite -1.0 Fe 1.0 S -1.0”</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>}</p>
+</p></li>
+<li><p><strong>i</strong> (<em>int</em>) – The block number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>script</strong> – The KINETICS block as a string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.generate_solution_block">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">generate_solution_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">species_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.generate_solution_block" title="Link to this definition"></a></dt>
+<dd><p>Generate a SOLUTION block for PHREEQC input script
+:type species_dict: 
+:param species_dict: A dictionary with species names as keys and concentrations as values.
+:type species_dict: dict
+:type i: 
+:param i: The solution number.
+:type i: int
+:type temp: 
+:param temp: The temperature of the solution in degrees Celsius. The default is 25.0.
+:type temp: float, optional
+:type water: 
+:param water: The mass of water in kg. The default is 1.0.
+:type water: float, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>script</strong> – The SOLUTION block as a string.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.generate_surface_block">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">generate_surface_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.generate_surface_block" title="Link to this definition"></a></dt>
+<dd><p>Generate a SURFACE block for PHREEQC input script
+:type surface_dict: 
+:param surface_dict: A dictionary with surface names as keys and lists of site densities and site densities as values.
+:type surface_dict: dict
+:type i: 
+:param i: The block number.
+:type i: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>script</strong> – The SURFACE block as a string.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.get_compound_names">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">get_compound_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SOLUTION_MASTER_SPECIES'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.get_compound_names" title="Link to this definition"></a></dt>
+<dd><p>Get a list of compound names from a PHREEQC database file
+:type database_file: 
+:param database_file: The path to the PHREEQC database file.
+:type database_file: str
+:type block: 
+:param block: The keyword for the block containing the compound names. The default is ‘SOLUTION_MASTER_SPECIES’.
+:type block: str, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>compound_names</strong> – A list of compound names.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.get_indices">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">get_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.get_indices" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.handle_block">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">handle_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_items</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.handle_block" title="Link to this definition"></a></dt>
+<dd><p>Generate a block for a PHREEQC input script if the current items are not empty
+:type current_items: 
+:param current_items: A list of items to include in the block.
+:type current_items: list
+:type block_generator: 
+:param block_generator: A function that generates the block.
+:type block_generator: function
+:type i: 
+:param i: The block number.
+:type i: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>script</strong> – The block as a string.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.map_species_property_to_grid">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">map_species_property_to_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ic_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.map_species_property_to_grid" title="Link to this definition"></a></dt>
+<dd><p>Create an array matching ic_array shape with a selected property
+(e.g., ‘moles’, ‘si’) of a given species from a zone-indexed dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_dict</strong> (<em>dict</em>) – Format: {zone_idx (int): {species_name (str): {key: value, …}}}</p></li>
+<li><p><strong>ic_array</strong> (<em>np.ndarray</em>) – 1-indexed zone allocation array of shape (nlay, nrow, ncol).</p></li>
+<li><p><strong>species</strong> (<em>str</em>) – Species name to extract (e.g., ‘Goethite’).</p></li>
+<li><p><strong>property_key</strong> (<em>str</em>) – Property to extract for the species (e.g., ‘moles’, ‘si’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of same shape as ic_array filled with the extracted property values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If the species or property_key is missing in any zone where it’s expected.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.parse_equilibriums_dataframe">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">parse_equilibriums_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.parse_equilibriums_dataframe" title="Link to this definition"></a></dt>
+<dd><p>Convert a DataFrame of equilibrium phases into a nested dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The input DataFrame.</p></li>
+<li><p><strong>columns</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of column names in the following order:
+[phase, sat_index, conc_mol_lb, num].
+Default: [‘phase’, ‘sat_index’, ‘conc_mol_lb’, ‘num’]
+num corresponds to the block number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary structured as {zone: {phase: {‘si’: val, ‘m0’: val}}}</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.parse_kinetics_dataframe">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">parse_kinetics_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['formula',</span> <span class="pre">'steps']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.parse_kinetics_dataframe" title="Link to this definition"></a></dt>
+<dd><p>Convert a DataFrame of kinetic phase data into a nested dictionary to import into mup3d.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – Must include ‘m0’, ‘parm1’-‘parm4’, ‘num’, and either ‘phase’ or ‘name’.</p></li>
+<li><p><strong>optional_fields</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of optional columns to include if present and non-NaN.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Nested dictionary like:
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>1: {</dt><dd><dl class="simple">
+<dt>“Calcite”: {</dt><dd><p>“m0”: 4.0,
+“parms”: [100.0, 0.6],
+“formula”: “Calcite -1.0 Ca 1.0 C -1.0”,
+…</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.prep_bins">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">prep_bins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.prep_bins" title="Link to this definition"></a></dt>
+<dd><p>Copy executables from the source path to the destination path</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.rearrange_copy_blocks">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">rearrange_copy_blocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.rearrange_copy_blocks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.solution_csv_to_dict">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">solution_csv_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.solution_csv_to_dict" title="Link to this definition"></a></dt>
+<dd><p>Read a solution CSV file and convert it to a dictionary
+:type csv_file: 
+:param csv_file: The path to the solution CSV file.
+:type csv_file: str
+:type header: 
+:param header: Whether the CSV file has a header. The default is True.
+:type header: bool, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – A dictionary with the first column as keys and the remaining columns as values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.solution_df_to_dict">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">solution_df_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.solution_df_to_dict" title="Link to this definition"></a></dt>
+<dd><p>Convert a pandas DataFrame to a dictionary
+:type data: 
+:param data: The DataFrame to convert.
+:type data: pandas.DataFrame
+:type header: 
+:param header: Whether the DataFrame has a header. The default is True.
+:type header: bool, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – A dictionary with the first column as keys and the remaining columns as values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.utils.utils.surfaces_csv_to_dict">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.utils.utils.</span></span><span class="sig-name descname"><span class="pre">surfaces_csv_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.utils.utils.surfaces_csv_to_dict" title="Link to this definition"></a></dt>
+<dd><p>Read an equilibrium phases CSV file and convert it to a dictionary
+:type csv_file: 
+:param csv_file: The path to the equilibrium phases CSV file.
+:type csv_file: str
+:type header: 
+:param header: Whether the CSV file has a header. The default is True.
+:type header: bool, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – A dictionary with phase names as keys and lists of saturation indices and amounts as values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mf6rtm.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mf6rtm.utils" title="Link to this heading"></a></h2>
+<p>Main utilities</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Pablo Ortega.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

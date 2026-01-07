@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mf6rtm.config package &mdash; mf6rtm  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mf6rtm
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">mf6rtm.config package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mf6rtm.config.config">mf6rtm.config.config module</a><ul>
+<li><a class="reference internal" href="#mf6rtm.config.config.ConfigSchema"><code class="docutils literal notranslate"><span class="pre">ConfigSchema</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.config.config.ConfigSchema.group"><code class="docutils literal notranslate"><span class="pre">ConfigSchema.group</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.ConfigSchema.toml_name"><code class="docutils literal notranslate"><span class="pre">ConfigSchema.toml_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.reaction_timing"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.reaction_timing</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.tsteps"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.tsteps</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.add_new_configuration"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.add_new_configuration()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.from_dict"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.from_toml_file"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.from_toml_file()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.get_tsteps_for_period"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.get_tsteps_for_period()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.is_reaction_tstep"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.is_reaction_tstep()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.save_to_file"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.save_to_file()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig.to_dict"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mf6rtm.config.yaml_reader">mf6rtm.config.yaml_reader module</a><ul>
+<li><a class="reference internal" href="#mf6rtm.config.yaml_reader.load_yaml_to_phreeqcrm"><code class="docutils literal notranslate"><span class="pre">load_yaml_to_phreeqcrm()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mf6rtm</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">mf6rtm.config package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/mf6rtm.config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mf6rtm-config-package">
+<h1>mf6rtm.config package<a class="headerlink" href="#mf6rtm-config-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mf6rtm.config.config">
+<span id="mf6rtm-config-config-module"></span><h2>mf6rtm.config.config module<a class="headerlink" href="#module-mf6rtm.config.config" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.config.config.ConfigSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.config.config.</span></span><span class="sig-name descname"><span class="pre">ConfigSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toml_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.ConfigSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Schema definition for configuration grouping.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.config.config.ConfigSchema.group">
+<span class="sig-name descname"><span class="pre">group</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#mf6rtm.config.config.ConfigSchema.group" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.config.config.ConfigSchema.toml_name">
+<span class="sig-name descname"><span class="pre">toml_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mf6rtm.config.config.ConfigSchema.toml_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.config.config.</span></span><span class="sig-name descname"><span class="pre">MF6RTMConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>MF6RTM Configuration class similar to FloPy package structure.
+This class provides a FloPy-style interface for configuring MF6RTM
+reaction timing parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reaction_timing</strong> (<em>str</em><em>, </em><em>optional</em>) – Controls when reactions are calculated. Options:
+- ‘all’ : Calculate reactions at all time steps (default)
+- ‘user’ : Calculate reactions only at user-specified time steps
+- ‘adaptive’ : Use adaptive timing based on convergence criteria</p></li>
+<li><p><strong>tsteps</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – List of (kper, kstp) tuples specifying when reactions should be calculated.
+Only used when reaction_timing=’user’. Default is empty list.
+kper is stress period (1-based), kstp is time step (1-based).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.reaction_timing">
+<span class="sig-name descname"><span class="pre">reaction_timing</span></span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.reaction_timing" title="Link to this definition"></a></dt>
+<dd><p>Current reaction timing strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.tsteps">
+<span class="sig-name descname"><span class="pre">tsteps</span></span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.tsteps" title="Link to this definition"></a></dt>
+<dd><p>List of time steps for reaction calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tuple[int, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.add_new_configuration">
+<span class="sig-name descname"><span class="pre">add_new_configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.add_new_configuration" title="Link to this definition"></a></dt>
+<dd><p>Add new configuration parameters dynamically.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.from_dict" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig" title="mf6rtm.config.config.MF6RTMConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">MF6RTMConfig</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.from_toml_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_toml_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.from_toml_file" title="Link to this definition"></a></dt>
+<dd><p>Load configuration from TOML file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – Path to TOML configuration file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New configuration instance loaded from file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.config.config.MF6RTMConfig" title="mf6rtm.config.config.MF6RTMConfig">MF6RTMConfig</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.get_tsteps_for_period">
+<span class="sig-name descname"><span class="pre">get_tsteps_for_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.get_tsteps_for_period" title="Link to this definition"></a></dt>
+<dd><p>Get time steps for a specific stress period.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kper</strong> (<em>int</em>) – Stress period number (1-based).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of time step numbers for the given stress period.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[int]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">MF6RTMConfig</span><span class="p">(</span><span class="n">reactive_timing</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                      <span class="n">reactive_tsteps</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span><span class="o">.</span><span class="n">get_tsteps_for_period</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">[1, 10]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.is_reaction_tstep">
+<span class="sig-name descname"><span class="pre">is_reaction_tstep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kstp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.is_reaction_tstep" title="Link to this definition"></a></dt>
+<dd><p>Check if reactions should be calculated at a specific time step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kper</strong> (<em>int</em>) – Stress period number (1-based).</p></li>
+<li><p><strong>kstp</strong> (<em>int</em>) – Time step number (1-based).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if reactions should be calculated at this time step.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">MF6RTMConfig</span><span class="p">(</span><span class="n">reaction_timing</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="n">tsteps</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span><span class="o">.</span><span class="n">is_reaction_tstep</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span><span class="o">.</span><span class="n">is_reaction_tstep</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.save_to_file">
+<span class="sig-name descname"><span class="pre">save_to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.save_to_file" title="Link to this definition"></a></dt>
+<dd><p>Save configuration to TOML file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – Path where TOML file should be saved.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.config.config.MF6RTMConfig.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.config.MF6RTMConfig.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Convert configuration to dictionary for TOML output with nested structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mf6rtm.config.yaml_reader">
+<span id="mf6rtm-config-yaml-reader-module"></span><h2>mf6rtm.config.yaml_reader module<a class="headerlink" href="#module-mf6rtm.config.yaml_reader" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.config.yaml_reader.load_yaml_to_phreeqcrm">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.config.yaml_reader.</span></span><span class="sig-name descname"><span class="pre">load_yaml_to_phreeqcrm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yaml_file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.config.yaml_reader.load_yaml_to_phreeqcrm" title="Link to this definition"></a></dt>
+<dd><p>Load a YAML file and reconstruct a YAMLPhreeqcRM instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>yaml_file_path</strong> (<em>str</em>) – Path to the YAML file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reconstructed instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>YAMLPhreeqcRM</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Pablo Ortega.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

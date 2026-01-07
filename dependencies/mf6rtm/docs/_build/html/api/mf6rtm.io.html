@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mf6rtm.io package &mdash; mf6rtm  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mf6rtm
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mf6rtm.html">mf6rtm package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mf6rtm</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">mf6rtm.io package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/mf6rtm.io.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mf6rtm-io-package">
+<h1>mf6rtm.io package<a class="headerlink" href="#mf6rtm-io-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mf6rtm.io.externalio">
+<span id="mf6rtm-io-externalio-module"></span><h2>mf6rtm.io.externalio module<a class="headerlink" href="#module-mf6rtm.io.externalio" title="Link to this heading"></a></h2>
+<p>externalio to write outputs and to write and read phreeqcrm
+inputs from layered txt files.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.io.externalio.</span></span><span class="sig-name descname"><span class="pre">Regenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phinp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'phinp.dat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yamlfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mf6rtm.yaml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dllfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'libmf6.dll'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to regenerate a Mup3d object from a script file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.add_m0_to_config">
+<span class="sig-name descname"><span class="pre">add_m0_to_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.add_m0_to_config" title="Link to this definition"></a></dt>
+<dd><p>Add the loaded array data to the config dictionary.
+This method should be called after read_external_files().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.generate_equilibrium_phases_blocks">
+<span class="sig-name descname"><span class="pre">generate_equilibrium_phases_blocks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.generate_equilibrium_phases_blocks" title="Link to this definition"></a></dt>
+<dd><p>Generate equilibrium phases blocks from the config.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.generate_exchange_phases_blocks">
+<span class="sig-name descname"><span class="pre">generate_exchange_phases_blocks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.generate_exchange_phases_blocks" title="Link to this definition"></a></dt>
+<dd><p>Generate exchange blocks from the config.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.generate_kinetic_phases_blocks">
+<span class="sig-name descname"><span class="pre">generate_kinetic_phases_blocks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.generate_kinetic_phases_blocks" title="Link to this definition"></a></dt>
+<dd><p>Generate kinetic phases blocks from the config.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.generate_new_script">
+<span class="sig-name descname"><span class="pre">generate_new_script</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.generate_new_script" title="Link to this definition"></a></dt>
+<dd><p>Generate a new script based on the existing script and configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.get_postfix_block">
+<span class="sig-name descname"><span class="pre">get_postfix_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.get_postfix_block" title="Link to this definition"></a></dt>
+<dd><p>Extract the postfix block from the script.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.get_solution_blocks">
+<span class="sig-name descname"><span class="pre">get_solution_blocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.get_solution_blocks" title="Link to this definition"></a></dt>
+<dd><p>Extract solution blocks from the script.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.read_external_files">
+<span class="sig-name descname"><span class="pre">read_external_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.read_external_files" title="Link to this definition"></a></dt>
+<dd><p>Read the external files required for regeneration using numpy.
+Returns a dictionary with the loaded arrays organized by key, name, and layer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.read_phinp">
+<span class="sig-name descname"><span class="pre">read_phinp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.read_phinp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.regenerate_from_external_files">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regenerate_from_external_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phinpfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'phinp.dat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yamlfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mf6rtm.yaml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dllfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'libmf6.dll'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.regenerate_from_external_files" title="Link to this definition"></a></dt>
+<dd><p>Class method to execute the regeneration process.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.update_yaml">
+<span class="sig-name descname"><span class="pre">update_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_mf6rtm.yaml'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.update_yaml" title="Link to this definition"></a></dt>
+<dd><p>Update the YAML file with the regenerated script and initial conditions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.validate_external_files">
+<span class="sig-name descname"><span class="pre">validate_external_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.validate_external_files" title="Link to this definition"></a></dt>
+<dd><p>Validate the existence of external files required for regeneration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.Regenerator.write_new_script">
+<span class="sig-name descname"><span class="pre">write_new_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_phinp.dat'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.Regenerator.write_new_script" title="Link to this definition"></a></dt>
+<dd><p>Write the regenerated script to a file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.SelectedOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.io.externalio.</span></span><span class="sig-name descname"><span class="pre">SelectedOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mf6rtm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.SelectedOutput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.io.externalio.SelectedOutput.write_ml_arrays">
+<span class="sig-name descname"><span class="pre">write_ml_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conc_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_var_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_features.csv'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.io.externalio.SelectedOutput.write_ml_arrays" title="Link to this definition"></a></dt>
+<dd><p>Write total transported component concentrations in mol/L
+(+ optional vars in mol/L) to CSV for Machine Learning arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conc_array</strong> (<em>array-like</em>) – Main concentrations (ncomps x nxyz).</p></li>
+<li><p><strong>add_var_names</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – Extra PHREEQC variables to include.</p></li>
+<li><p><strong>fname</strong> (<em>str</em>) – Output filename (relative to model wd).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mf6rtm.io">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mf6rtm.io" title="Link to this heading"></a></h2>
+<p>Main io module to write and read model files</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Pablo Ortega.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

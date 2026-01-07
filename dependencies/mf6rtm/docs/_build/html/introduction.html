@@ -1,0 +1,196 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; mf6rtm  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8a448e45"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="mf6rtm package" href="api/mf6rtm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mf6rtm
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">mf6rtm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-reactive-transport-modeling">What is Reactive Transport Modeling?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-features">Key Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#seamless-integration">Seamless Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uncertainty-analysis">Uncertainty Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#code-structure">Code Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-mf6rtm">Why mf6rtm?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mf6rtm</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p><strong>mf6rtm</strong> (MODFLOW 6 Reactive Transport Modeling) is a Python package that provides seamless integration between MODFLOW-6 and PHREEQC for simulating reactive transport processes in subsurface environments.</p>
+<p>Reactive transport modeling is essential for understanding the intricate interplay between hydrogeological processes and chemical reactions in subsurface environments. mf6rtm bridges MODFLOW-6, the current version of the MODFLOW family of groundwater flow and transport codes, with PHREEQC, a versatile software for geochemical modeling.</p>
+</section>
+<section id="what-is-reactive-transport-modeling">
+<h2>What is Reactive Transport Modeling?<a class="headerlink" href="#what-is-reactive-transport-modeling" title="Link to this heading"></a></h2>
+<p>Reactive transport modeling combines:</p>
+<ul class="simple">
+<li><p><strong>Groundwater flow</strong> - Movement of water through porous media</p></li>
+<li><p><strong>Solute transport</strong> - Migration of dissolved components</p></li>
+<li><p><strong>Chemical reactions</strong> - including:</p>
+<ul>
+<li><p>Mineral dissolution and precipitation</p></li>
+<li><p>Redox reactions</p></li>
+<li><p>Ion exchange and sorption</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
+<section id="seamless-integration">
+<h3>Seamless Integration<a class="headerlink" href="#seamless-integration" title="Link to this heading"></a></h3>
+<p>Through the integration facilitated by the MODFLOWAPI and PHREEQCRM APIs, mf6rtm provides a unified platform for modeling groundwater flow, solute transport,
+and chemical reactions within a single computational environment.</p>
+</section>
+<section id="uncertainty-analysis">
+<h3>Uncertainty Analysis<a class="headerlink" href="#uncertainty-analysis" title="Link to this heading"></a></h3>
+<p>The code is designed to seamlessly integrate with PEST++ and PyEMU for:</p>
+<ul class="simple">
+<li><p>Uncertainty quantification</p></li>
+<li><p>Sensitivity analysis</p></li>
+<li><p>Parameter estimation</p></li>
+<li><p>Model calibration</p></li>
+</ul>
+<p>This integration enables users to perform rigorous assessment of the impact of parameter and model uncertainties on reactive transport simulations.</p>
+</section>
+</section>
+<section id="code-structure">
+<h2>Code Structure<a class="headerlink" href="#code-structure" title="Link to this heading"></a></h2>
+<p>mf6rtm is organized into several subpackages, but there two main components, that the user will interact with the most: solver and mup3d.</p>
+<ul class="simple">
+<li><p><strong>Solver</strong>: This component manages the coupling between MODFLOW-6 and PHREEQC, handling data exchange, time-stepping, and overall simulation control.</p></li>
+<li><p><strong>Mup3d</strong>: This module acts as a pre- and post-processor for preparing input files for the reactive transport simulations, especially the chemistry inputs for PHREEQCRM (think FloPy for MODFLOW-6 + PHREEQC).</p></li>
+</ul>
+<p>In addition to these, the user will require some knowledge and familiarity with Modflow 6 and FloPy to be able to set up and run mf6rtm simulations.</p>
+</section>
+<section id="why-mf6rtm">
+<h2>Why mf6rtm?<a class="headerlink" href="#why-mf6rtm" title="Link to this heading"></a></h2>
+<p>mf6rtm represents a significant advancement in reactive transport modeling by:</p>
+<ul class="simple">
+<li><p><strong>Integrating</strong> state-of-the-art flow and geochemical codes</p></li>
+<li><p><strong>Providing</strong> a Python-based, user-friendly interface</p></li>
+<li><p><strong>Enabling</strong> uncertainty analysis and model calibration</p></li>
+<li><p><strong>Offering</strong> flexibility for diverse hydrogeological scenarios</p></li>
+</ul>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p>or explore the <a class="reference internal" href="api/modules.html"><span class="doc">mf6rtm</span></a> documentation.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Install mf6rtm using pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>mf6rtm
+</pre></div>
+</div>
+<p>For development installation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-org/mf6rtm.git
+<span class="nb">cd</span><span class="w"> </span>mf6rtm
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api/mf6rtm.html" class="btn btn-neutral float-left" title="mf6rtm package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Pablo Ortega.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

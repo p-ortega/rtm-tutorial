@@ -1,0 +1,1990 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mf6rtm.mup3d package &mdash; mf6rtm  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mf6rtm
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">mf6rtm.mup3d package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mf6rtm.mup3d.base">mf6rtm.mup3d.base module</a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block"><code class="docutils literal notranslate"><span class="pre">Block</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.data"><code class="docutils literal notranslate"><span class="pre">Block.data</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.names"><code class="docutils literal notranslate"><span class="pre">Block.names</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.ic"><code class="docutils literal notranslate"><span class="pre">Block.ic</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.eq_solutions"><code class="docutils literal notranslate"><span class="pre">Block.eq_solutions</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.options"><code class="docutils literal notranslate"><span class="pre">Block.options</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.get_names"><code class="docutils literal notranslate"><span class="pre">Block.get_names()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Block.ic</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.set_equilibrate_solutions"><code class="docutils literal notranslate"><span class="pre">Block.set_equilibrate_solutions()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.set_ic"><code class="docutils literal notranslate"><span class="pre">Block.set_ic()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Block.set_options"><code class="docutils literal notranslate"><span class="pre">Block.set_options()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.ChemStress"><code class="docutils literal notranslate"><span class="pre">ChemStress</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.ChemStress.packnme"><code class="docutils literal notranslate"><span class="pre">ChemStress.packnme</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.ChemStress.sol_spd"><code class="docutils literal notranslate"><span class="pre">ChemStress.sol_spd</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.ChemStress.packtype"><code class="docutils literal notranslate"><span class="pre">ChemStress.packtype</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.ChemStress.set_packtype"><code class="docutils literal notranslate"><span class="pre">ChemStress.set_packtype()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.ChemStress.set_spd"><code class="docutils literal notranslate"><span class="pre">ChemStress.set_spd()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.EquilibriumPhases"><code class="docutils literal notranslate"><span class="pre">EquilibriumPhases</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.EquilibriumPhases.parameters"><code class="docutils literal notranslate"><span class="pre">EquilibriumPhases.parameters</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.ExchangePhases"><code class="docutils literal notranslate"><span class="pre">ExchangePhases</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.ExchangePhases.parameters"><code class="docutils literal notranslate"><span class="pre">ExchangePhases.parameters</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.GasPhase"><code class="docutils literal notranslate"><span class="pre">GasPhase</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.GasPhase.parameters"><code class="docutils literal notranslate"><span class="pre">GasPhase.parameters</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.KineticPhases"><code class="docutils literal notranslate"><span class="pre">KineticPhases</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.KineticPhases.parameters"><code class="docutils literal notranslate"><span class="pre">KineticPhases.parameters</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.KineticPhases.set_parameters"><code class="docutils literal notranslate"><span class="pre">KineticPhases.set_parameters()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.name"><code class="docutils literal notranslate"><span class="pre">Mup3d.name</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.wd"><code class="docutils literal notranslate"><span class="pre">Mup3d.wd</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.charge_offset"><code class="docutils literal notranslate"><span class="pre">Mup3d.charge_offset</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.database"><code class="docutils literal notranslate"><span class="pre">Mup3d.database</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.solutions"><code class="docutils literal notranslate"><span class="pre">Mup3d.solutions</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.init_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.init_temp</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.equilibrium_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.equilibrium_phases</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.kinetic_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.kinetic_phases</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.exchange_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.exchange_phases</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.surfaces_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.surfaces_phases</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.postfix"><code class="docutils literal notranslate"><span class="pre">Mup3d.postfix</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.phreeqc_rm"><code class="docutils literal notranslate"><span class="pre">Mup3d.phreeqc_rm</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.init_conc_array_phreeqc"><code class="docutils literal notranslate"><span class="pre">Mup3d.init_conc_array_phreeqc</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.sconc"><code class="docutils literal notranslate"><span class="pre">Mup3d.sconc</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.phinp"><code class="docutils literal notranslate"><span class="pre">Mup3d.phinp</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.components"><code class="docutils literal notranslate"><span class="pre">Mup3d.components</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.fixed_components"><code class="docutils literal notranslate"><span class="pre">Mup3d.fixed_components</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.nlay"><code class="docutils literal notranslate"><span class="pre">Mup3d.nlay</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.nrow"><code class="docutils literal notranslate"><span class="pre">Mup3d.nrow</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.ncol"><code class="docutils literal notranslate"><span class="pre">Mup3d.ncol</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.nxyz"><code class="docutils literal notranslate"><span class="pre">Mup3d.nxyz</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.grid_shape"><code class="docutils literal notranslate"><span class="pre">Mup3d.grid_shape</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.generate_phreeqc_script"><code class="docutils literal notranslate"><span class="pre">Mup3d.generate_phreeqc_script()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.get_componenth2o"><code class="docutils literal notranslate"><span class="pre">Mup3d.get_componenth2o()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.get_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.get_config()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.initialize"><code class="docutils literal notranslate"><span class="pre">Mup3d.initialize()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.initialize_chem_stress"><code class="docutils literal notranslate"><span class="pre">Mup3d.initialize_chem_stress()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.load_mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d.load_mup3d()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.run"><code class="docutils literal notranslate"><span class="pre">Mup3d.run()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.save_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.save_config()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.save_mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d.save_mup3d()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_charge_offset"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_charge_offset()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_chem_stress"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_chem_stress()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_componenth2o"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_componenth2o()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_config()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_database"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_database()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_equilibrium_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_equilibrium_phases()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_exchange_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_exchange_phases()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_fixed_components"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_fixed_components()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_initial_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_initial_temp()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_phases()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_postfix"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_postfix()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_reaction_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_reaction_temp()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.set_wd"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_wd()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.write_external_files_layered"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_external_files_layered()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.write_internal_parameters"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_internal_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d.write_simulation"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_simulation()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Solutions"><code class="docutils literal notranslate"><span class="pre">Solutions</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Solutions.parameters"><code class="docutils literal notranslate"><span class="pre">Solutions.parameters</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Surfaces"><code class="docutils literal notranslate"><span class="pre">Surfaces</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.Surfaces.parameters"><code class="docutils literal notranslate"><span class="pre">Surfaces.parameters</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.base.working_dir"><code class="docutils literal notranslate"><span class="pre">working_dir()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mf6rtm.mup3d">Module contents</a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.name"><code class="docutils literal notranslate"><span class="pre">Mup3d.name</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.wd"><code class="docutils literal notranslate"><span class="pre">Mup3d.wd</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.charge_offset"><code class="docutils literal notranslate"><span class="pre">Mup3d.charge_offset</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.database"><code class="docutils literal notranslate"><span class="pre">Mup3d.database</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.solutions"><code class="docutils literal notranslate"><span class="pre">Mup3d.solutions</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.init_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.init_temp</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.equilibrium_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.equilibrium_phases</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.kinetic_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.kinetic_phases</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.exchange_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.exchange_phases</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.surfaces_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.surfaces_phases</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.postfix"><code class="docutils literal notranslate"><span class="pre">Mup3d.postfix</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.phreeqc_rm"><code class="docutils literal notranslate"><span class="pre">Mup3d.phreeqc_rm</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.init_conc_array_phreeqc"><code class="docutils literal notranslate"><span class="pre">Mup3d.init_conc_array_phreeqc</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.sconc"><code class="docutils literal notranslate"><span class="pre">Mup3d.sconc</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.phinp"><code class="docutils literal notranslate"><span class="pre">Mup3d.phinp</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.components"><code class="docutils literal notranslate"><span class="pre">Mup3d.components</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.fixed_components"><code class="docutils literal notranslate"><span class="pre">Mup3d.fixed_components</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.nlay"><code class="docutils literal notranslate"><span class="pre">Mup3d.nlay</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.nrow"><code class="docutils literal notranslate"><span class="pre">Mup3d.nrow</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.ncol"><code class="docutils literal notranslate"><span class="pre">Mup3d.ncol</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.nxyz"><code class="docutils literal notranslate"><span class="pre">Mup3d.nxyz</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.grid_shape"><code class="docutils literal notranslate"><span class="pre">Mup3d.grid_shape</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.generate_phreeqc_script"><code class="docutils literal notranslate"><span class="pre">Mup3d.generate_phreeqc_script()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.get_componenth2o"><code class="docutils literal notranslate"><span class="pre">Mup3d.get_componenth2o()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.get_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.get_config()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.initialize"><code class="docutils literal notranslate"><span class="pre">Mup3d.initialize()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.initialize_chem_stress"><code class="docutils literal notranslate"><span class="pre">Mup3d.initialize_chem_stress()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.load_mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d.load_mup3d()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.run"><code class="docutils literal notranslate"><span class="pre">Mup3d.run()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.save_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.save_config()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.save_mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d.save_mup3d()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_charge_offset"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_charge_offset()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_chem_stress"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_chem_stress()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_componenth2o"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_componenth2o()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_config()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_database"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_database()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_equilibrium_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_equilibrium_phases()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_exchange_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_exchange_phases()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_fixed_components"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_fixed_components()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_initial_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_initial_temp()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_phases()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_postfix"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_postfix()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_reaction_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_reaction_temp()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.set_wd"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_wd()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.write_external_files_layered"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_external_files_layered()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.write_internal_parameters"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_internal_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.mup3d.Mup3d.write_simulation"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_simulation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mf6rtm</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">mf6rtm.mup3d package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/mf6rtm.mup3d.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mf6rtm-mup3d-package">
+<h1>mf6rtm.mup3d package<a class="headerlink" href="#mf6rtm-mup3d-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mf6rtm.mup3d.base">
+<span id="mf6rtm-mup3d-base-module"></span><h2>mf6rtm.mup3d.base module<a class="headerlink" href="#module-mf6rtm.mup3d.base" title="Link to this heading"></a></h2>
+<p>Base module of the mup3d package</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">Block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Block" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for PHREEQC input “keyword data blocks”.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.data" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of geochemical components (keys) and their total concentrations
+(list) and other parameters, indexed by block number, similar to a .pqi file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.names">
+<span class="sig-name descname"><span class="pre">names</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.names" title="Link to this definition"></a></dt>
+<dd><p>List of names of geochemical components that serve as keys to the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.ic">
+<span class="sig-name descname"><span class="pre">ic</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.ic" title="Link to this definition"></a></dt>
+<dd><p>Initial condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.eq_solutions">
+<span class="sig-name descname"><span class="pre">eq_solutions</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.eq_solutions" title="Link to this definition"></a></dt>
+<dd><p>List of equilibrium solutions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.options" title="Link to this definition"></a></dt>
+<dd><p>List of options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.get_names">
+<span class="sig-name descname"><span class="pre">get_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.get_names" title="Link to this definition"></a></dt>
+<dd><p>Get the names of geochemical components or phases specified in the block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of names of geochemical components that serve as keys to the data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">ic</span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>None means no initial condition (-1)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.set_equilibrate_solutions">
+<span class="sig-name descname"><span class="pre">set_equilibrate_solutions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eq_solutions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.set_equilibrate_solutions" title="Link to this definition"></a></dt>
+<dd><p>Set the equilibrium solutions for the exchange phases.
+Array where index is the exchange phase number and value
+is the solution number to equilibrate with.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eq_solutions</strong> – List of equilibrium solution indices for each exchange phase.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.set_ic">
+<span class="sig-name descname"><span class="pre">set_ic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ic</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.set_ic" title="Link to this definition"></a></dt>
+<dd><p>Set the initial condition for the block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ic</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Initial condition concentrations. Can be an int, float, or ndarray.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Block.set_options">
+<span class="sig-name descname"><span class="pre">set_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Block.set_options" title="Link to this definition"></a></dt>
+<dd><p>Set the options for the block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>options</strong> – List of options for the block.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.ChemStress">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">ChemStress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packnme</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.ChemStress" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The ChemStress class for handling stress period data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.ChemStress.packnme">
+<span class="sig-name descname"><span class="pre">packnme</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.ChemStress.packnme" title="Link to this definition"></a></dt>
+<dd><p>Name of the package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.ChemStress.sol_spd">
+<span class="sig-name descname"><span class="pre">sol_spd</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.ChemStress.sol_spd" title="Link to this definition"></a></dt>
+<dd><p>List of solution stress period data. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.ChemStress.packtype">
+<span class="sig-name descname"><span class="pre">packtype</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.ChemStress.packtype" title="Link to this definition"></a></dt>
+<dd><p>Type of the package. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.ChemStress.set_packtype">
+<span class="sig-name descname"><span class="pre">set_packtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.ChemStress.set_packtype" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.ChemStress.set_spd">
+<span class="sig-name descname"><span class="pre">set_spd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sol_spd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.ChemStress.set_spd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.EquilibriumPhases">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">EquilibriumPhases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.EquilibriumPhases" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mf6rtm.mup3d.base.Block" title="mf6rtm.mup3d.base.Block"><code class="xref py py-class docutils literal notranslate"><span class="pre">Block</span></code></a></p>
+<p>The EquilibriumPhases Block.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.EquilibriumPhases.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.EquilibriumPhases.parameters" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of parameters for the equilibrium phases. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.ExchangePhases">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">ExchangePhases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.ExchangePhases" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mf6rtm.mup3d.base.Block" title="mf6rtm.mup3d.base.Block"><code class="xref py py-class docutils literal notranslate"><span class="pre">Block</span></code></a></p>
+<p>The ExchangePhases Block.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.ExchangePhases.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.ExchangePhases.parameters" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of parameters for the exchange phases. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.GasPhase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">GasPhase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.GasPhase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mf6rtm.mup3d.base.Block" title="mf6rtm.mup3d.base.Block"><code class="xref py py-class docutils literal notranslate"><span class="pre">Block</span></code></a></p>
+<p>The GasPhase Block.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.GasPhase.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.GasPhase.parameters" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of parameters for the gas phase. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.KineticPhases">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">KineticPhases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.KineticPhases" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mf6rtm.mup3d.base.Block" title="mf6rtm.mup3d.base.Block"><code class="xref py py-class docutils literal notranslate"><span class="pre">Block</span></code></a></p>
+<p>The KineticPhases Block.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.KineticPhases.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.KineticPhases.parameters" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of parameters for the kinetic phases. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.KineticPhases.set_parameters">
+<span class="sig-name descname"><span class="pre">set_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.KineticPhases.set_parameters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">Mup3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solutions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nlay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Mup3d class wrapper and extension for a PhreeqcRM model class.</p>
+<p>This class extends the PhreeqcRM class to include additional methods
+that facilitate the coupling to Modflow6 via ModflowAPI.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.wd">
+<span class="sig-name descname"><span class="pre">wd</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.wd" title="Link to this definition"></a></dt>
+<dd><p>Working directory path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.charge_offset">
+<span class="sig-name descname"><span class="pre">charge_offset</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.charge_offset" title="Link to this definition"></a></dt>
+<dd><p>Charge offset, initialized to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.database">
+<span class="sig-name descname"><span class="pre">database</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.database" title="Link to this definition"></a></dt>
+<dd><p>Path to the PHREEQC database file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.solutions">
+<span class="sig-name descname"><span class="pre">solutions</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.solutions" title="Link to this definition"></a></dt>
+<dd><p>Solutions instance containing the geochemical data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.Solutions" title="mf6rtm.mup3d.base.Solutions">Solutions</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.init_temp">
+<span class="sig-name descname"><span class="pre">init_temp</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.init_temp" title="Link to this definition"></a></dt>
+<dd><p>Initial temperature. Default is 25.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.equilibrium_phases">
+<span class="sig-name descname"><span class="pre">equilibrium_phases</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.equilibrium_phases" title="Link to this definition"></a></dt>
+<dd><p>Equilibrium phases in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.EquilibriumPhases" title="mf6rtm.mup3d.base.EquilibriumPhases">EquilibriumPhases</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.kinetic_phases">
+<span class="sig-name descname"><span class="pre">kinetic_phases</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.kinetic_phases" title="Link to this definition"></a></dt>
+<dd><p>Kinetic phases in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.KineticPhases" title="mf6rtm.mup3d.base.KineticPhases">KineticPhases</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.exchange_phases">
+<span class="sig-name descname"><span class="pre">exchange_phases</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.exchange_phases" title="Link to this definition"></a></dt>
+<dd><p>Exchange phases in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.ExchangePhases" title="mf6rtm.mup3d.base.ExchangePhases">ExchangePhases</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.surfaces_phases">
+<span class="sig-name descname"><span class="pre">surfaces_phases</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.surfaces_phases" title="Link to this definition"></a></dt>
+<dd><p>Surface phases in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.Surfaces" title="mf6rtm.mup3d.base.Surfaces">Surfaces</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.postfix">
+<span class="sig-name descname"><span class="pre">postfix</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.postfix" title="Link to this definition"></a></dt>
+<dd><p>Postfix for the output files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.phreeqc_rm">
+<span class="sig-name descname"><span class="pre">phreeqc_rm</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.phreeqc_rm" title="Link to this definition"></a></dt>
+<dd><p>PHREEQC reactive transport model instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.init_conc_array_phreeqc">
+<span class="sig-name descname"><span class="pre">init_conc_array_phreeqc</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.init_conc_array_phreeqc" title="Link to this definition"></a></dt>
+<dd><p>1D array of concentrations (mol/L) structured for PhreeqcRM, with each
+component concentration for each grid cell ordered by model.components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.sconc">
+<span class="sig-name descname"><span class="pre">sconc</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.sconc" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of concentrations in units of moles per m^3 and structured to
+match the shape of Modflow’s grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, np.ndarray]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.phinp">
+<span class="sig-name descname"><span class="pre">phinp</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.phinp" title="Link to this definition"></a></dt>
+<dd><p>PHREEQC input instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.components">
+<span class="sig-name descname"><span class="pre">components</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.components" title="Link to this definition"></a></dt>
+<dd><p>List of chemical components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.fixed_components">
+<span class="sig-name descname"><span class="pre">fixed_components</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.fixed_components" title="Link to this definition"></a></dt>
+<dd><p>List of fixed components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.nlay">
+<span class="sig-name descname"><span class="pre">nlay</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.nlay" title="Link to this definition"></a></dt>
+<dd><p>Number of layers in the model grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.nrow">
+<span class="sig-name descname"><span class="pre">nrow</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.nrow" title="Link to this definition"></a></dt>
+<dd><p>Number of rows in the model grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.ncol">
+<span class="sig-name descname"><span class="pre">ncol</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.ncol" title="Link to this definition"></a></dt>
+<dd><p>Number of columns in the model grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.nxyz">
+<span class="sig-name descname"><span class="pre">nxyz</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.nxyz" title="Link to this definition"></a></dt>
+<dd><p>Total number of cells in the model grid, either
+(nlay * nrow * ncol) if DIS or
+(nlay * ncpl) if DISV or
+(nxyz) if DISU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.grid_shape">
+<span class="sig-name descname"><span class="pre">grid_shape</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.grid_shape" title="Link to this definition"></a></dt>
+<dd><p>Shape of the model grid, either
+(nlay, nrow, ncol) if DIS or
+(nlay, ncpl) if DISV or
+(nxyz) if DISU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.generate_phreeqc_script">
+<span class="sig-name descname"><span class="pre">generate_phreeqc_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_charge_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.generate_phreeqc_script" title="Link to this definition"></a></dt>
+<dd><p>Generates the phinp file for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>add_charge_flag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to add a charge flag to species in the solution block.
+Default is False.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated PHREEQC script as a string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.get_componenth2o">
+<span class="sig-name descname"><span class="pre">get_componenth2o</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.get_componenth2o" title="Link to this definition"></a></dt>
+<dd><p>Get componenth2o flag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the componenth2o flag.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.get_config">
+<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.get_config" title="Link to this definition"></a></dt>
+<dd><p>Retrieve config object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Configuration parameters as a dictionary.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_charge_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.initialize" title="Link to this definition"></a></dt>
+<dd><p>Initialize a PhreeqcRM object and calculate initial concentrations.</p>
+<p>This method initializes a PhreeqcRM object using PHREEQC inputs and adds several
+key attributes to the Mup3d object for reactive transport modeling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of threads for parallel processing. Default is 1.</p></li>
+<li><p><strong>add_charge_flag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to add charge flag to species. Default is False.</p></li>
+<li><p><strong>Added</strong> (<em>Attributes</em>)</p></li>
+<li><p><strong>---------------</strong></p></li>
+<li><p><strong>components</strong> (<em>list</em>) – List of transportable chemical components.</p></li>
+<li><p><strong>init_conc_array_phreeqc</strong> (<em>ndarray</em>) – 1D array of concentrations (mol/L) structured for PhreeqcRM, with each
+component concentration for each grid cell ordered by model.components.</p></li>
+<li><p><strong>sconc</strong> (<em>dict</em>) – Dictionary with components as keys and concentration arrays (mol/m^3) as values,
+structured to match the shape of the Modflow6 model domain grid.</p></li>
+<li><p><strong>phreeqc_rm</strong> (<em>PhreeqcRM</em>) – Initialized PhreeqcRM object.</p></li>
+<li><p><strong>nchem</strong> (<em>int</em>) – Number of chemistry cells.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method performs several key initialization steps:
+1. Generates PHREEQC input script
+2. Initializes PhreeqcRM object
+3. Sets up initial conditions
+4. Calculates initial concentrations
+5. Converts concentrations to proper units and grid structure</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.initialize_chem_stress">
+<span class="sig-name descname"><span class="pre">initialize_chem_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.initialize_chem_stress" title="Link to this definition"></a></dt>
+<dd><p>Initialize a PhreeqcRM object with boundary condition chemical
+concentrations for the specified Modflow Stress Period and Package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attr</strong> (<em>str</em>) – The Modflow 6 Package name.</p></li>
+<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of threads to use for PhreeqcRM (default is 1).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with component names as keys and concentration arrays in moles/m3 as values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This function initializes a PhreeqcRM object, loads a database, runs a Phreeqc input file,
+and transfers solutions and reactants to the reaction-module workers. It then equilibrates
+the cells, gets the concentrations, and converts them to moles/m3.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">phreeqcrm.PhreeqcRM</span></code></dt><dd><p>PhreeqcRM class documentation.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.load_mup3d">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_mup3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mup3d.pkl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.load_mup3d" title="Link to this definition"></a></dt>
+<dd><p>Load a Mup3d object from a pickle file (class method).
+This creates a new Mup3d instance from a saved pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the pickle file. Default is ‘mup3d.pkl’.</p></li>
+<li><p><strong>working_dir</strong> (<em>str</em><em>, </em><em>optional</em>) – Directory containing the pickle file. Default is current directory.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new Mup3d instance loaded from the pickle file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.Mup3d" title="mf6rtm.mup3d.base.Mup3d">Mup3d</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a new model from pickle file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Mup3d</span><span class="o">.</span><span class="n">load_mup3d</span><span class="p">(</span><span class="s1">&#39;my_model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/model/dir&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.run" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function to run the MF6RTM model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reactive</strong> (<em>bool</em><em>, </em><em>optional</em>) – <p>Whether to run the model in reactive mode. If None, uses the value from the config
+nthread : int, optional</p>
+<blockquote>
+<div><p>Number of threads to use for the simulation. Default is 1.</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the model ran successfully, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.save_config">
+<span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.save_config" title="Link to this definition"></a></dt>
+<dd><p>Save config toml file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Path to the saved configuration file.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.save_mup3d">
+<span class="sig-name descname"><span class="pre">save_mup3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mup3d.pkl'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.save_mup3d" title="Link to this definition"></a></dt>
+<dd><p>Save the Mup3d object to a pickle file.</p>
+<p>This method saves all non-private, non-callable attributes of the Mup3d object
+to a pickle file for later restoration using load_mup3d().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the pickle file. Default is ‘mup3d.pkl’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_charge_offset">
+<span class="sig-name descname"><span class="pre">set_charge_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge_offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_charge_offset" title="Link to this definition"></a></dt>
+<dd><p>Sets the charge offset for the MF6RTM model to handle negative charge values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>charge_offset</strong> (<em>float</em>) – The charge offset value to be added to the charge concentration.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_chem_stress">
+<span class="sig-name descname"><span class="pre">set_chem_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chem_stress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_chem_stress" title="Link to this definition"></a></dt>
+<dd><p>Sets the ChemStress instance for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chem_stress</strong> (<a class="reference internal" href="#mf6rtm.mup3d.base.ChemStress" title="mf6rtm.mup3d.base.ChemStress"><em>ChemStress</em></a>) – Instance of the ChemStress class containing stress period data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_componenth2o">
+<span class="sig-name descname"><span class="pre">set_componenth2o</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_componenth2o" title="Link to this definition"></a></dt>
+<dd><p>Set the component H2O to be True or False.
+if False Total H and Total O are transported
+if True H2O, Excess H and Excess O are transported</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flag</strong> (<em>bool</em>) – True to include H2O as a component, False otherwise.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the componenth2o flag.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If flag is not a boolean.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_config">
+<span class="sig-name descname"><span class="pre">set_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_config" title="Link to this definition"></a></dt>
+<dd><p>Create and store a config object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> (<em>dict</em>) – Configuration parameters for MF6RTMConfig.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created configuration object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig" title="mf6rtm.config.config.MF6RTMConfig">MF6RTMConfig</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_database">
+<span class="sig-name descname"><span class="pre">set_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_database" title="Link to this definition"></a></dt>
+<dd><p>Sets the database for the MF6RTM model.</p>
+<section id="parameters">
+<h3>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<p>database (str): The path to the database file.</p>
+</section>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<p>:
+None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_equilibrium_phases">
+<span class="sig-name descname"><span class="pre">set_equilibrium_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eq_phases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_equilibrium_phases" title="Link to this definition"></a></dt>
+<dd><p>Sets the equilibrium phases for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eq_phases</strong> (<a class="reference internal" href="#mf6rtm.mup3d.base.EquilibriumPhases" title="mf6rtm.mup3d.base.EquilibriumPhases"><em>EquilibriumPhases</em></a>) – Instance of the EquilibriumPhases class containing geochemical data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_exchange_phases">
+<span class="sig-name descname"><span class="pre">set_exchange_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchanger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_exchange_phases" title="Link to this definition"></a></dt>
+<dd><p>Sets the exchange phases for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exchanger</strong> (<a class="reference internal" href="#mf6rtm.mup3d.base.ExchangePhases" title="mf6rtm.mup3d.base.ExchangePhases"><em>ExchangePhases</em></a>) – Instance of the ExchangePhases class containing geochemical data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_fixed_components">
+<span class="sig-name descname"><span class="pre">set_fixed_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixed_components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_fixed_components" title="Link to this definition"></a></dt>
+<dd><p>Set the fixed components for the MF6RTM model.
+These are the components that are not transported during the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fixed_components</strong> (<em>list</em>) – List of component names to be fixed (not transported).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_initial_temp">
+<span class="sig-name descname"><span class="pre">set_initial_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_initial_temp" title="Link to this definition"></a></dt>
+<dd><p>Sets the initial temperature for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>temp</strong> (<em>int</em><em>, </em><em>float</em><em>, or </em><em>list</em>) – Initial temperature value(s). Can be a single value (int or float)
+for homogeneous temperature or a list for spatially variable temperature.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_phases">
+<span class="sig-name descname"><span class="pre">set_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_phases" title="Link to this definition"></a></dt>
+<dd><p>Sets the phases for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phase</strong> (<a class="reference internal" href="#mf6rtm.mup3d.base.KineticPhases" title="mf6rtm.mup3d.base.KineticPhases"><em>KineticPhases</em></a><em>, </em><a class="reference internal" href="#mf6rtm.mup3d.base.ExchangePhases" title="mf6rtm.mup3d.base.ExchangePhases"><em>ExchangePhases</em></a><em>, </em><a class="reference internal" href="#mf6rtm.mup3d.base.EquilibriumPhases" title="mf6rtm.mup3d.base.EquilibriumPhases"><em>EquilibriumPhases</em></a><em>, or </em><a class="reference internal" href="#mf6rtm.mup3d.base.Surfaces" title="mf6rtm.mup3d.base.Surfaces"><em>Surfaces</em></a>) – Instance of one of the phase classes containing geochemical data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_postfix">
+<span class="sig-name descname"><span class="pre">set_postfix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">postfix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_postfix" title="Link to this definition"></a></dt>
+<dd><p>Sets the postfix file for the MF6RTM model.</p>
+<section id="id1">
+<h3>Parameters:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>postfix (str): The path to the postfix file.</p>
+</section>
+<section id="id2">
+<h3>Returns:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>:
+None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_reaction_temp">
+<span class="sig-name descname"><span class="pre">set_reaction_temp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_reaction_temp" title="Link to this definition"></a></dt>
+<dd><p>Sets the reaction temperature for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of reaction temperatures for each grid cell.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.set_wd">
+<span class="sig-name descname"><span class="pre">set_wd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.set_wd" title="Link to this definition"></a></dt>
+<dd><p>Sets the working directory for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>(</strong><strong>str</strong><strong>)</strong> (<em>wd</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If the working directory path is not a string.:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.write_external_files_layered">
+<span class="sig-name descname"><span class="pre">write_external_files_layered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">internals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['exchange_phases',</span> <span class="pre">'equilibrium_phases',</span> <span class="pre">'kinetic_phases']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_to_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['m0']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.write_external_files_layered" title="Link to this definition"></a></dt>
+<dd><p>Write layered external text files for selected geochemical phases and properties.</p>
+<p>For each specified geochemical phase (e.g., exchange, equilibrium, kinetic), this method extracts
+the given properties (e.g., ‘m0’) for all defined species and writes a separate file per layer
+in the simulation domain. The files are saved in the model’s working directory and follow the
+naming convention:</p>
+<blockquote>
+<div><p>{phase}.{species}.{property}.layer{n}.txt</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>internals</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of model attributes containing geochemical phase data.
+Default is [“exchange_phases”, “equilibrium_phases”, “kinetic_phases”].</p></li>
+<li><p><strong>property_to_write</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of property names to extract and write per species and layer.
+Default is [‘m0’].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.write_internal_parameters">
+<span class="sig-name descname"><span class="pre">write_internal_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">internals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'equilibrium_phases':</span> <span class="pre">['si'],</span> <span class="pre">'exchange_phases':</span> <span class="pre">['dummy'],</span> <span class="pre">'kinetic_phases':</span> <span class="pre">['parms',</span> <span class="pre">'formula',</span> <span class="pre">'steps']}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.write_internal_parameters" title="Link to this definition"></a></dt>
+<dd><p>Add non-external attributes to the config object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>internals</strong> (<em>dict</em>) – <p>Dictionary with phase names as keys and list of attributes to add as values.
+Default is {</p>
+<blockquote>
+<div><p>”equilibrium_phases”: [“si”],
+“kinetic_phases”: [“parms”, “formula”, “steps”],
+“exchange_phases”: [“dummy”]</p>
+</div></blockquote>
+<p>}.</p>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Mup3d.write_simulation">
+<span class="sig-name descname"><span class="pre">write_simulation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Mup3d.write_simulation" title="Link to this definition"></a></dt>
+<dd><p>Write phreqcrm simulation and configuration files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Solutions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">Solutions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Solutions" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mf6rtm.mup3d.base.Block" title="mf6rtm.mup3d.base.Block"><code class="xref py py-class docutils literal notranslate"><span class="pre">Block</span></code></a></p>
+<p>The Solutions Block.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Solutions.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Solutions.parameters" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of parameters for the solutions. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Surfaces">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">Surfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.Surfaces" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mf6rtm.mup3d.base.Block" title="mf6rtm.mup3d.base.Block"><code class="xref py py-class docutils literal notranslate"><span class="pre">Block</span></code></a></p>
+<p>The Surfaces Block.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.Surfaces.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#mf6rtm.mup3d.base.Surfaces.parameters" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of parameters for the surfaces. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.base.working_dir">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.base.</span></span><span class="sig-name descname"><span class="pre">working_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.base.working_dir" title="Link to this definition"></a></dt>
+<dd><p>Context manager for changing the current working directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Path to the directory to change to.</p>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mf6rtm.mup3d">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mf6rtm.mup3d" title="Link to this heading"></a></h2>
+<p>The mup3d module provides function to write input files for phreeqcrm and adds
+functionality to write files externally in a modflow-like fashion.</p>
+<p>History: The Model Utility Preprocessor 3D (MUP3D) was envisioned by Mr. Beaker
+as a successort to PHT3D.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.mup3d.</span></span><span class="sig-name descname"><span class="pre">Mup3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solutions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nlay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Mup3d class wrapper and extension for a PhreeqcRM model class.</p>
+<p>This class extends the PhreeqcRM class to include additional methods
+that facilitate the coupling to Modflow6 via ModflowAPI.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.wd">
+<span class="sig-name descname"><span class="pre">wd</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.wd" title="Link to this definition"></a></dt>
+<dd><p>Working directory path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.charge_offset">
+<span class="sig-name descname"><span class="pre">charge_offset</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.charge_offset" title="Link to this definition"></a></dt>
+<dd><p>Charge offset, initialized to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.database">
+<span class="sig-name descname"><span class="pre">database</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.database" title="Link to this definition"></a></dt>
+<dd><p>Path to the PHREEQC database file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.solutions">
+<span class="sig-name descname"><span class="pre">solutions</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.solutions" title="Link to this definition"></a></dt>
+<dd><p>Solutions instance containing the geochemical data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.Solutions" title="mf6rtm.mup3d.base.Solutions">Solutions</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.init_temp">
+<span class="sig-name descname"><span class="pre">init_temp</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.init_temp" title="Link to this definition"></a></dt>
+<dd><p>Initial temperature. Default is 25.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.equilibrium_phases">
+<span class="sig-name descname"><span class="pre">equilibrium_phases</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.equilibrium_phases" title="Link to this definition"></a></dt>
+<dd><p>Equilibrium phases in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.EquilibriumPhases" title="mf6rtm.mup3d.base.EquilibriumPhases">EquilibriumPhases</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.kinetic_phases">
+<span class="sig-name descname"><span class="pre">kinetic_phases</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.kinetic_phases" title="Link to this definition"></a></dt>
+<dd><p>Kinetic phases in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.KineticPhases" title="mf6rtm.mup3d.base.KineticPhases">KineticPhases</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.exchange_phases">
+<span class="sig-name descname"><span class="pre">exchange_phases</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.exchange_phases" title="Link to this definition"></a></dt>
+<dd><p>Exchange phases in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.ExchangePhases" title="mf6rtm.mup3d.base.ExchangePhases">ExchangePhases</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.surfaces_phases">
+<span class="sig-name descname"><span class="pre">surfaces_phases</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.surfaces_phases" title="Link to this definition"></a></dt>
+<dd><p>Surface phases in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.base.Surfaces" title="mf6rtm.mup3d.base.Surfaces">Surfaces</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.postfix">
+<span class="sig-name descname"><span class="pre">postfix</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.postfix" title="Link to this definition"></a></dt>
+<dd><p>Postfix for the output files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.phreeqc_rm">
+<span class="sig-name descname"><span class="pre">phreeqc_rm</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.phreeqc_rm" title="Link to this definition"></a></dt>
+<dd><p>PHREEQC reactive transport model instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.init_conc_array_phreeqc">
+<span class="sig-name descname"><span class="pre">init_conc_array_phreeqc</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.init_conc_array_phreeqc" title="Link to this definition"></a></dt>
+<dd><p>1D array of concentrations (mol/L) structured for PhreeqcRM, with each
+component concentration for each grid cell ordered by model.components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.sconc">
+<span class="sig-name descname"><span class="pre">sconc</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.sconc" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of concentrations in units of moles per m^3 and structured to
+match the shape of Modflow’s grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, np.ndarray]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.phinp">
+<span class="sig-name descname"><span class="pre">phinp</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.phinp" title="Link to this definition"></a></dt>
+<dd><p>PHREEQC input instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.components">
+<span class="sig-name descname"><span class="pre">components</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.components" title="Link to this definition"></a></dt>
+<dd><p>List of chemical components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.fixed_components">
+<span class="sig-name descname"><span class="pre">fixed_components</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.fixed_components" title="Link to this definition"></a></dt>
+<dd><p>List of fixed components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.nlay">
+<span class="sig-name descname"><span class="pre">nlay</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.nlay" title="Link to this definition"></a></dt>
+<dd><p>Number of layers in the model grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.nrow">
+<span class="sig-name descname"><span class="pre">nrow</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.nrow" title="Link to this definition"></a></dt>
+<dd><p>Number of rows in the model grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.ncol">
+<span class="sig-name descname"><span class="pre">ncol</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.ncol" title="Link to this definition"></a></dt>
+<dd><p>Number of columns in the model grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.nxyz">
+<span class="sig-name descname"><span class="pre">nxyz</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.nxyz" title="Link to this definition"></a></dt>
+<dd><p>Total number of cells in the model grid, either
+(nlay * nrow * ncol) if DIS or
+(nlay * ncpl) if DISV or
+(nxyz) if DISU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.grid_shape">
+<span class="sig-name descname"><span class="pre">grid_shape</span></span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.grid_shape" title="Link to this definition"></a></dt>
+<dd><p>Shape of the model grid, either
+(nlay, nrow, ncol) if DIS or
+(nlay, ncpl) if DISV or
+(nxyz) if DISU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.generate_phreeqc_script">
+<span class="sig-name descname"><span class="pre">generate_phreeqc_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_charge_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.generate_phreeqc_script" title="Link to this definition"></a></dt>
+<dd><p>Generates the phinp file for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>add_charge_flag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to add a charge flag to species in the solution block.
+Default is False.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated PHREEQC script as a string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.get_componenth2o">
+<span class="sig-name descname"><span class="pre">get_componenth2o</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.get_componenth2o" title="Link to this definition"></a></dt>
+<dd><p>Get componenth2o flag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the componenth2o flag.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.get_config">
+<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.get_config" title="Link to this definition"></a></dt>
+<dd><p>Retrieve config object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Configuration parameters as a dictionary.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_charge_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.initialize" title="Link to this definition"></a></dt>
+<dd><p>Initialize a PhreeqcRM object and calculate initial concentrations.</p>
+<p>This method initializes a PhreeqcRM object using PHREEQC inputs and adds several
+key attributes to the Mup3d object for reactive transport modeling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of threads for parallel processing. Default is 1.</p></li>
+<li><p><strong>add_charge_flag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to add charge flag to species. Default is False.</p></li>
+<li><p><strong>Added</strong> (<em>Attributes</em>)</p></li>
+<li><p><strong>---------------</strong></p></li>
+<li><p><strong>components</strong> (<em>list</em>) – List of transportable chemical components.</p></li>
+<li><p><strong>init_conc_array_phreeqc</strong> (<em>ndarray</em>) – 1D array of concentrations (mol/L) structured for PhreeqcRM, with each
+component concentration for each grid cell ordered by model.components.</p></li>
+<li><p><strong>sconc</strong> (<em>dict</em>) – Dictionary with components as keys and concentration arrays (mol/m^3) as values,
+structured to match the shape of the Modflow6 model domain grid.</p></li>
+<li><p><strong>phreeqc_rm</strong> (<em>PhreeqcRM</em>) – Initialized PhreeqcRM object.</p></li>
+<li><p><strong>nchem</strong> (<em>int</em>) – Number of chemistry cells.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method performs several key initialization steps:
+1. Generates PHREEQC input script
+2. Initializes PhreeqcRM object
+3. Sets up initial conditions
+4. Calculates initial concentrations
+5. Converts concentrations to proper units and grid structure</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.initialize_chem_stress">
+<span class="sig-name descname"><span class="pre">initialize_chem_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.initialize_chem_stress" title="Link to this definition"></a></dt>
+<dd><p>Initialize a PhreeqcRM object with boundary condition chemical
+concentrations for the specified Modflow Stress Period and Package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attr</strong> (<em>str</em>) – The Modflow 6 Package name.</p></li>
+<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of threads to use for PhreeqcRM (default is 1).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with component names as keys and concentration arrays in moles/m3 as values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This function initializes a PhreeqcRM object, loads a database, runs a Phreeqc input file,
+and transfers solutions and reactants to the reaction-module workers. It then equilibrates
+the cells, gets the concentrations, and converts them to moles/m3.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">phreeqcrm.PhreeqcRM</span></code></dt><dd><p>PhreeqcRM class documentation.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.load_mup3d">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_mup3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mup3d.pkl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.load_mup3d" title="Link to this definition"></a></dt>
+<dd><p>Load a Mup3d object from a pickle file (class method).
+This creates a new Mup3d instance from a saved pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the pickle file. Default is ‘mup3d.pkl’.</p></li>
+<li><p><strong>working_dir</strong> (<em>str</em><em>, </em><em>optional</em>) – Directory containing the pickle file. Default is current directory.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new Mup3d instance loaded from the pickle file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mf6rtm.mup3d.Mup3d" title="mf6rtm.mup3d.Mup3d">Mup3d</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a new model from pickle file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Mup3d</span><span class="o">.</span><span class="n">load_mup3d</span><span class="p">(</span><span class="s1">&#39;my_model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/model/dir&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.run" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function to run the MF6RTM model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reactive</strong> (<em>bool</em><em>, </em><em>optional</em>) – <p>Whether to run the model in reactive mode. If None, uses the value from the config
+nthread : int, optional</p>
+<blockquote>
+<div><p>Number of threads to use for the simulation. Default is 1.</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the model ran successfully, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.save_config">
+<span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.save_config" title="Link to this definition"></a></dt>
+<dd><p>Save config toml file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Path to the saved configuration file.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.save_mup3d">
+<span class="sig-name descname"><span class="pre">save_mup3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mup3d.pkl'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.save_mup3d" title="Link to this definition"></a></dt>
+<dd><p>Save the Mup3d object to a pickle file.</p>
+<p>This method saves all non-private, non-callable attributes of the Mup3d object
+to a pickle file for later restoration using load_mup3d().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the pickle file. Default is ‘mup3d.pkl’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_charge_offset">
+<span class="sig-name descname"><span class="pre">set_charge_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge_offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_charge_offset" title="Link to this definition"></a></dt>
+<dd><p>Sets the charge offset for the MF6RTM model to handle negative charge values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>charge_offset</strong> (<em>float</em>) – The charge offset value to be added to the charge concentration.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_chem_stress">
+<span class="sig-name descname"><span class="pre">set_chem_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chem_stress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_chem_stress" title="Link to this definition"></a></dt>
+<dd><p>Sets the ChemStress instance for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chem_stress</strong> (<a class="reference internal" href="#mf6rtm.mup3d.base.ChemStress" title="mf6rtm.mup3d.base.ChemStress"><em>ChemStress</em></a>) – Instance of the ChemStress class containing stress period data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_componenth2o">
+<span class="sig-name descname"><span class="pre">set_componenth2o</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_componenth2o" title="Link to this definition"></a></dt>
+<dd><p>Set the component H2O to be True or False.
+if False Total H and Total O are transported
+if True H2O, Excess H and Excess O are transported</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flag</strong> (<em>bool</em>) – True to include H2O as a component, False otherwise.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the componenth2o flag.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If flag is not a boolean.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_config">
+<span class="sig-name descname"><span class="pre">set_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_config" title="Link to this definition"></a></dt>
+<dd><p>Create and store a config object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> (<em>dict</em>) – Configuration parameters for MF6RTMConfig.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created configuration object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig" title="mf6rtm.config.config.MF6RTMConfig">MF6RTMConfig</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_database">
+<span class="sig-name descname"><span class="pre">set_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_database" title="Link to this definition"></a></dt>
+<dd><p>Sets the database for the MF6RTM model.</p>
+<section id="id3">
+<h3>Parameters:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>database (str): The path to the database file.</p>
+</section>
+<section id="id4">
+<h3>Returns:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>:
+None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_equilibrium_phases">
+<span class="sig-name descname"><span class="pre">set_equilibrium_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eq_phases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_equilibrium_phases" title="Link to this definition"></a></dt>
+<dd><p>Sets the equilibrium phases for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eq_phases</strong> (<a class="reference internal" href="#mf6rtm.mup3d.base.EquilibriumPhases" title="mf6rtm.mup3d.base.EquilibriumPhases"><em>EquilibriumPhases</em></a>) – Instance of the EquilibriumPhases class containing geochemical data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_exchange_phases">
+<span class="sig-name descname"><span class="pre">set_exchange_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchanger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_exchange_phases" title="Link to this definition"></a></dt>
+<dd><p>Sets the exchange phases for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exchanger</strong> (<a class="reference internal" href="#mf6rtm.mup3d.base.ExchangePhases" title="mf6rtm.mup3d.base.ExchangePhases"><em>ExchangePhases</em></a>) – Instance of the ExchangePhases class containing geochemical data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_fixed_components">
+<span class="sig-name descname"><span class="pre">set_fixed_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixed_components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_fixed_components" title="Link to this definition"></a></dt>
+<dd><p>Set the fixed components for the MF6RTM model.
+These are the components that are not transported during the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fixed_components</strong> (<em>list</em>) – List of component names to be fixed (not transported).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_initial_temp">
+<span class="sig-name descname"><span class="pre">set_initial_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_initial_temp" title="Link to this definition"></a></dt>
+<dd><p>Sets the initial temperature for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>temp</strong> (<em>int</em><em>, </em><em>float</em><em>, or </em><em>list</em>) – Initial temperature value(s). Can be a single value (int or float)
+for homogeneous temperature or a list for spatially variable temperature.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_phases">
+<span class="sig-name descname"><span class="pre">set_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_phases" title="Link to this definition"></a></dt>
+<dd><p>Sets the phases for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phase</strong> (<a class="reference internal" href="#mf6rtm.mup3d.base.KineticPhases" title="mf6rtm.mup3d.base.KineticPhases"><em>KineticPhases</em></a><em>, </em><a class="reference internal" href="#mf6rtm.mup3d.base.ExchangePhases" title="mf6rtm.mup3d.base.ExchangePhases"><em>ExchangePhases</em></a><em>, </em><a class="reference internal" href="#mf6rtm.mup3d.base.EquilibriumPhases" title="mf6rtm.mup3d.base.EquilibriumPhases"><em>EquilibriumPhases</em></a><em>, or </em><a class="reference internal" href="#mf6rtm.mup3d.base.Surfaces" title="mf6rtm.mup3d.base.Surfaces"><em>Surfaces</em></a>) – Instance of one of the phase classes containing geochemical data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_postfix">
+<span class="sig-name descname"><span class="pre">set_postfix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">postfix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_postfix" title="Link to this definition"></a></dt>
+<dd><p>Sets the postfix file for the MF6RTM model.</p>
+<section id="id5">
+<h3>Parameters:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>postfix (str): The path to the postfix file.</p>
+</section>
+<section id="id6">
+<h3>Returns:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>:
+None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_reaction_temp">
+<span class="sig-name descname"><span class="pre">set_reaction_temp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_reaction_temp" title="Link to this definition"></a></dt>
+<dd><p>Sets the reaction temperature for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of reaction temperatures for each grid cell.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.set_wd">
+<span class="sig-name descname"><span class="pre">set_wd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.set_wd" title="Link to this definition"></a></dt>
+<dd><p>Sets the working directory for the MF6RTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>(</strong><strong>str</strong><strong>)</strong> (<em>wd</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If the working directory path is not a string.:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.write_external_files_layered">
+<span class="sig-name descname"><span class="pre">write_external_files_layered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">internals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['exchange_phases',</span> <span class="pre">'equilibrium_phases',</span> <span class="pre">'kinetic_phases']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_to_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['m0']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.write_external_files_layered" title="Link to this definition"></a></dt>
+<dd><p>Write layered external text files for selected geochemical phases and properties.</p>
+<p>For each specified geochemical phase (e.g., exchange, equilibrium, kinetic), this method extracts
+the given properties (e.g., ‘m0’) for all defined species and writes a separate file per layer
+in the simulation domain. The files are saved in the model’s working directory and follow the
+naming convention:</p>
+<blockquote>
+<div><p>{phase}.{species}.{property}.layer{n}.txt</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>internals</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of model attributes containing geochemical phase data.
+Default is [“exchange_phases”, “equilibrium_phases”, “kinetic_phases”].</p></li>
+<li><p><strong>property_to_write</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of property names to extract and write per species and layer.
+Default is [‘m0’].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.write_internal_parameters">
+<span class="sig-name descname"><span class="pre">write_internal_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">internals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'equilibrium_phases':</span> <span class="pre">['si'],</span> <span class="pre">'exchange_phases':</span> <span class="pre">['dummy'],</span> <span class="pre">'kinetic_phases':</span> <span class="pre">['parms',</span> <span class="pre">'formula',</span> <span class="pre">'steps']}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.write_internal_parameters" title="Link to this definition"></a></dt>
+<dd><p>Add non-external attributes to the config object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>internals</strong> (<em>dict</em>) – <p>Dictionary with phase names as keys and list of attributes to add as values.
+Default is {</p>
+<blockquote>
+<div><p>”equilibrium_phases”: [“si”],
+“kinetic_phases”: [“parms”, “formula”, “steps”],
+“exchange_phases”: [“dummy”]</p>
+</div></blockquote>
+<p>}.</p>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.mup3d.Mup3d.write_simulation">
+<span class="sig-name descname"><span class="pre">write_simulation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.mup3d.Mup3d.write_simulation" title="Link to this definition"></a></dt>
+<dd><p>Write phreqcrm simulation and configuration files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Pablo Ortega.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

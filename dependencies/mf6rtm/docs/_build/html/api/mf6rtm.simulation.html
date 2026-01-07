@@ -1,0 +1,720 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mf6rtm.simulation package &mdash; mf6rtm  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mf6rtm
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">mf6rtm.simulation package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mf6rtm.simulation.discretization">mf6rtm.simulation.discretization module</a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.discretization.grid_dimensions"><code class="docutils literal notranslate"><span class="pre">grid_dimensions()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.discretization.total_cells_in_grid"><code class="docutils literal notranslate"><span class="pre">total_cells_in_grid()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mf6rtm.simulation.mf6api">mf6rtm.simulation.mf6api module</a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.mf6api.Mf6API"><code class="docutils literal notranslate"><span class="pre">Mf6API</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.mf6api.Mf6API.grid_type"><code class="docutils literal notranslate"><span class="pre">Mf6API.grid_type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mf6rtm.simulation.phreeqcbmi">mf6rtm.simulation.phreeqcbmi module</a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI.get_grid_to_map"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI.get_grid_to_map()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI.set_scalar"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI.set_scalar()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mf6rtm.simulation.solver">mf6rtm.simulation.solver module</a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM"><code class="docutils literal notranslate"><span class="pre">Mf6RTM</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.get_saturation_from_mf6"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.get_saturation_from_mf6()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.get_time_units_from_mf6"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.get_time_units_from_mf6()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.is_reactive_tstep"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.is_reactive_tstep()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.print_warning_user_active"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.print_warning_user_active()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.set_emulator_output_add_variables"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_emulator_output_add_variables()</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.selected_output.target_var"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.selected_output.target_var</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.selected_output.feat_var"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.selected_output.feat_var</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.set_emulator_training"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_emulator_training()</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.ml_output"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.ml_output</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.set_kiter"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_kiter()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.set_time_conversion"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_time_conversion()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.Mf6RTM.solve"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.solve()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.check_config_file"><code class="docutils literal notranslate"><span class="pre">check_config_file()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.check_nam_files"><code class="docutils literal notranslate"><span class="pre">check_nam_files()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.get_conc_change_mask"><code class="docutils literal notranslate"><span class="pre">get_conc_change_mask()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.get_inactive_idx"><code class="docutils literal notranslate"><span class="pre">get_inactive_idx()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.get_less_than_zero_idx"><code class="docutils literal notranslate"><span class="pre">get_less_than_zero_idx()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.initialize_interfaces"><code class="docutils literal notranslate"><span class="pre">initialize_interfaces()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.longest_common_substring"><code class="docutils literal notranslate"><span class="pre">longest_common_substring()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.mrbeaker"><code class="docutils literal notranslate"><span class="pre">mrbeaker()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.prep_to_run"><code class="docutils literal notranslate"><span class="pre">prep_to_run()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.run_cmd"><code class="docutils literal notranslate"><span class="pre">run_cmd()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.set_nthread_yaml"><code class="docutils literal notranslate"><span class="pre">set_nthread_yaml()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solver.solve"><code class="docutils literal notranslate"><span class="pre">solve()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mf6rtm.simulation">Module contents</a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6API"><code class="docutils literal notranslate"><span class="pre">Mf6API</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6API.grid_type"><code class="docutils literal notranslate"><span class="pre">Mf6API.grid_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM"><code class="docutils literal notranslate"><span class="pre">Mf6RTM</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.get_saturation_from_mf6"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.get_saturation_from_mf6()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.get_time_units_from_mf6"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.get_time_units_from_mf6()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.is_reactive_tstep"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.is_reactive_tstep()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.print_warning_user_active"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.print_warning_user_active()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.set_emulator_output_add_variables"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_emulator_output_add_variables()</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.selected_output.target_var"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.selected_output.target_var</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.selected_output.feat_var"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.selected_output.feat_var</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.set_emulator_training"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_emulator_training()</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.ml_output"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.ml_output</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.set_kiter"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_kiter()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.set_time_conversion"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_time_conversion()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.Mf6RTM.solve"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.solve()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.simulation.PhreeqcBMI"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI</span></code></a><ul>
+<li><a class="reference internal" href="#mf6rtm.simulation.PhreeqcBMI.get_grid_to_map"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI.get_grid_to_map()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.PhreeqcBMI.set_scalar"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI.set_scalar()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mf6rtm.simulation.run_cmd"><code class="docutils literal notranslate"><span class="pre">run_cmd()</span></code></a></li>
+<li><a class="reference internal" href="#mf6rtm.simulation.solve"><code class="docutils literal notranslate"><span class="pre">solve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mf6rtm</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">mf6rtm.simulation package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/mf6rtm.simulation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mf6rtm-simulation-package">
+<h1>mf6rtm.simulation package<a class="headerlink" href="#mf6rtm-simulation-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mf6rtm.simulation.discretization">
+<span id="mf6rtm-simulation-discretization-module"></span><h2>mf6rtm.simulation.discretization module<a class="headerlink" href="#module-mf6rtm.simulation.discretization" title="Link to this heading"></a></h2>
+<p>This module contains the Discretization functions for various ModFlow grid types.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.discretization.grid_dimensions">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.discretization.</span></span><span class="sig-name descname"><span class="pre">grid_dimensions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modflow_api</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.discretization.grid_dimensions" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.discretization.total_cells_in_grid">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.discretization.</span></span><span class="sig-name descname"><span class="pre">total_cells_in_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modflow_api</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.discretization.total_cells_in_grid" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mf6rtm.simulation.mf6api">
+<span id="mf6rtm-simulation-mf6api-module"></span><h2>mf6rtm.simulation.mf6api module<a class="headerlink" href="#module-mf6rtm.simulation.mf6api" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.simulation.mf6api.Mf6API">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.mf6api.</span></span><span class="sig-name descname"><span class="pre">Mf6API</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dll</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.mf6api.Mf6API" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModflowApi</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="mf6rtm.simulation.mf6api.Mf6API.grid_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grid_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mf6rtm.simulation.mf6api.Mf6API.grid_type" title="Link to this definition"></a></dt>
+<dd><p>Grid type of the ModFlow6 model</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mf6rtm.simulation.phreeqcbmi">
+<span id="mf6rtm-simulation-phreeqcbmi-module"></span><h2>mf6rtm.simulation.phreeqcbmi module<a class="headerlink" href="#module-mf6rtm.simulation.phreeqcbmi" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.simulation.phreeqcbmi.PhreeqcBMI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.phreeqcbmi.</span></span><span class="sig-name descname"><span class="pre">PhreeqcBMI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yaml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mf6rtm.yaml'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BMIPhreeqcRM</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.phreeqcbmi.PhreeqcBMI.get_grid_to_map">
+<span class="sig-name descname"><span class="pre">get_grid_to_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI.get_grid_to_map" title="Link to this definition"></a></dt>
+<dd><p>Function to get grid to map</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.phreeqcbmi.PhreeqcBMI.set_scalar">
+<span class="sig-name descname"><span class="pre">set_scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI.set_scalar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mf6rtm.simulation.solver">
+<span id="mf6rtm-simulation-solver-module"></span><h2>mf6rtm.simulation.solver module<a class="headerlink" href="#module-mf6rtm.simulation.solver" title="Link to this heading"></a></h2>
+<p>The solver module provides the Mf6RTM class that couples modflowapi and
+phreeqcrm, along with functions to run the coupled simulations.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">Mf6RTM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mf6api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phreeqcbmi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.get_saturation_from_mf6">
+<span class="sig-name descname"><span class="pre">get_saturation_from_mf6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.get_saturation_from_mf6" title="Link to this definition"></a></dt>
+<dd><p>Get the saturation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>(</strong><strong>modflowapi</strong><strong>)</strong> (<em>mf6</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>array</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the saturation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.get_time_units_from_mf6">
+<span class="sig-name descname"><span class="pre">get_time_units_from_mf6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.get_time_units_from_mf6" title="Link to this definition"></a></dt>
+<dd><p>Function to get the time units from mf6</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.is_reactive_tstep">
+<span class="sig-name descname"><span class="pre">is_reactive_tstep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.is_reactive_tstep" title="Link to this definition"></a></dt>
+<dd><p>Check if the current timestep should be reactive based on configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if current timestep should be reactive, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.print_warning_user_active">
+<span class="sig-name descname"><span class="pre">print_warning_user_active</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.print_warning_user_active" title="Link to this definition"></a></dt>
+<dd><p>Prints a warning if reaction timing is set to ‘user’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.set_emulator_output_add_variables">
+<span class="sig-name descname"><span class="pre">set_emulator_output_add_variables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.set_emulator_output_add_variables" title="Link to this definition"></a></dt>
+<dd><p>Add emulator target and feature variables to the output.</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">selected_output</span></code> with variables defined in the configuration.
+Defaults to empty lists if not provided.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.selected_output.target_var">
+<span class="sig-prename descclassname"><span class="pre">selected_output.</span></span><span class="sig-name descname"><span class="pre">target_var</span></span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.selected_output.target_var" title="Link to this definition"></a></dt>
+<dd><p>Target variables for emulator training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.selected_output.feat_var">
+<span class="sig-prename descclassname"><span class="pre">selected_output.</span></span><span class="sig-name descname"><span class="pre">feat_var</span></span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.selected_output.feat_var" title="Link to this definition"></a></dt>
+<dd><p>Feature variables for emulator training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.set_emulator_training">
+<span class="sig-name descname"><span class="pre">set_emulator_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.set_emulator_training" title="Link to this definition"></a></dt>
+<dd><p>Configure emulator training output.</p>
+<p>Reads <code class="docutils literal notranslate"><span class="pre">emulator_training_data</span></code> from the configuration. If enabled,
+sets up emulator output variables; otherwise disables training data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.ml_output">
+<span class="sig-name descname"><span class="pre">ml_output</span></span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.ml_output" title="Link to this definition"></a></dt>
+<dd><p>Whether emulator training data output is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.set_kiter">
+<span class="sig-name descname"><span class="pre">set_kiter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.set_kiter" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.set_time_conversion">
+<span class="sig-name descname"><span class="pre">set_time_conversion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.set_time_conversion" title="Link to this definition"></a></dt>
+<dd><p>Function to set the time conversion factor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.Mf6RTM.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.Mf6RTM.solve" title="Link to this definition"></a></dt>
+<dd><p>Solve the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.check_config_file">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">check_config_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.check_config_file" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.check_nam_files">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">check_nam_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.check_nam_files" title="Link to this definition"></a></dt>
+<dd><p>Check if the nam files are present in the model directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.get_conc_change_mask">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">get_conc_change_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ci</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ck</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.get_conc_change_mask" title="Link to this definition"></a></dt>
+<dd><p>Function to get the active-inactive cell mask for concentration change to inform phreeqc which cells to update</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.get_inactive_idx">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">get_inactive_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e+30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.get_inactive_idx" title="Link to this definition"></a></dt>
+<dd><p>Function to get the index of all occurrences of &lt;0 in an array</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.get_less_than_zero_idx">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">get_less_than_zero_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.get_less_than_zero_idx" title="Link to this definition"></a></dt>
+<dd><p>Function to get the index of all occurrences of &lt;0 in an array</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.initialize_interfaces">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">initialize_interfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.initialize_interfaces" title="Link to this definition"></a></dt>
+<dd><p>Function to initialize the interfaces for modflowapi and phreeqcrm and returns the mf6rtm object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#mf6rtm.simulation.mf6api.Mf6API" title="mf6rtm.simulation.mf6api.Mf6API"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mf6API</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.longest_common_substring">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">longest_common_substring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.longest_common_substring" title="Link to this definition"></a></dt>
+<dd><p>Function to find the longest common substring of a list of strings
+Used here to find the common “stem” of the GWT model names for matching
+with PhreeqcRM components.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.mrbeaker">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">mrbeaker</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.mrbeaker" title="Link to this definition"></a></dt>
+<dd><p>ASCII art of Mr. Beaker</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.prep_to_run">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">prep_to_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.prep_to_run" title="Link to this definition"></a></dt>
+<dd><p>Prepares the model to run by checking if the model directory (wd) contains the necessary files
+and returns the path to the yaml file (phreeqcrm) and the dll file (mf6 api)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wd</strong> (<em>os.PathLike</em>) – The path to the working directory of model directory</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The path to the phreeqcrm model file (yaml) and the path to the MODFLOW 6 dll (associated with mf6api).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[PathLike,os.PathLike]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.run_cmd">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">run_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.run_cmd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.set_nthread_yaml">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">set_nthread_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yamlfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.set_nthread_yaml" title="Link to this definition"></a></dt>
+<dd><p>Function to set the number of threads in the yaml file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solver.solve">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.solver.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reactive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solver.solve" title="Link to this definition"></a></dt>
+<dd><p>Wrapper to prepare and call solve functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mf6rtm.simulation">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mf6rtm.simulation" title="Link to this heading"></a></h2>
+<p>Main module to manage the APIs PHREEQCRM and MODFLOW6 API, and solve the reactive
+transport loop</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6API">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.</span></span><span class="sig-name descname"><span class="pre">Mf6API</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dll</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6API" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModflowApi</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6API.grid_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grid_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mf6rtm.simulation.Mf6API.grid_type" title="Link to this definition"></a></dt>
+<dd><p>Grid type of the ModFlow6 model</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.</span></span><span class="sig-name descname"><span class="pre">Mf6RTM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mf6api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phreeqcbmi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.get_saturation_from_mf6">
+<span class="sig-name descname"><span class="pre">get_saturation_from_mf6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.get_saturation_from_mf6" title="Link to this definition"></a></dt>
+<dd><p>Get the saturation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>(</strong><strong>modflowapi</strong><strong>)</strong> (<em>mf6</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>array</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the saturation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.get_time_units_from_mf6">
+<span class="sig-name descname"><span class="pre">get_time_units_from_mf6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.get_time_units_from_mf6" title="Link to this definition"></a></dt>
+<dd><p>Function to get the time units from mf6</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.is_reactive_tstep">
+<span class="sig-name descname"><span class="pre">is_reactive_tstep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.is_reactive_tstep" title="Link to this definition"></a></dt>
+<dd><p>Check if the current timestep should be reactive based on configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if current timestep should be reactive, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.print_warning_user_active">
+<span class="sig-name descname"><span class="pre">print_warning_user_active</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.print_warning_user_active" title="Link to this definition"></a></dt>
+<dd><p>Prints a warning if reaction timing is set to ‘user’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.set_emulator_output_add_variables">
+<span class="sig-name descname"><span class="pre">set_emulator_output_add_variables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.set_emulator_output_add_variables" title="Link to this definition"></a></dt>
+<dd><p>Add emulator target and feature variables to the output.</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">selected_output</span></code> with variables defined in the configuration.
+Defaults to empty lists if not provided.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.selected_output.target_var">
+<span class="sig-prename descclassname"><span class="pre">selected_output.</span></span><span class="sig-name descname"><span class="pre">target_var</span></span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.selected_output.target_var" title="Link to this definition"></a></dt>
+<dd><p>Target variables for emulator training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.selected_output.feat_var">
+<span class="sig-prename descclassname"><span class="pre">selected_output.</span></span><span class="sig-name descname"><span class="pre">feat_var</span></span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.selected_output.feat_var" title="Link to this definition"></a></dt>
+<dd><p>Feature variables for emulator training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.set_emulator_training">
+<span class="sig-name descname"><span class="pre">set_emulator_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.set_emulator_training" title="Link to this definition"></a></dt>
+<dd><p>Configure emulator training output.</p>
+<p>Reads <code class="docutils literal notranslate"><span class="pre">emulator_training_data</span></code> from the configuration. If enabled,
+sets up emulator output variables; otherwise disables training data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.ml_output">
+<span class="sig-name descname"><span class="pre">ml_output</span></span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.ml_output" title="Link to this definition"></a></dt>
+<dd><p>Whether emulator training data output is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.set_kiter">
+<span class="sig-name descname"><span class="pre">set_kiter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.set_kiter" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.set_time_conversion">
+<span class="sig-name descname"><span class="pre">set_time_conversion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.set_time_conversion" title="Link to this definition"></a></dt>
+<dd><p>Function to set the time conversion factor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.Mf6RTM.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.Mf6RTM.solve" title="Link to this definition"></a></dt>
+<dd><p>Solve the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.simulation.PhreeqcBMI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.</span></span><span class="sig-name descname"><span class="pre">PhreeqcBMI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yaml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mf6rtm.yaml'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.PhreeqcBMI" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BMIPhreeqcRM</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.PhreeqcBMI.get_grid_to_map">
+<span class="sig-name descname"><span class="pre">get_grid_to_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.PhreeqcBMI.get_grid_to_map" title="Link to this definition"></a></dt>
+<dd><p>Function to get grid to map</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.simulation.PhreeqcBMI.set_scalar">
+<span class="sig-name descname"><span class="pre">set_scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.PhreeqcBMI.set_scalar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.run_cmd">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.</span></span><span class="sig-name descname"><span class="pre">run_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.run_cmd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.simulation.solve">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.simulation.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reactive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.simulation.solve" title="Link to this definition"></a></dt>
+<dd><p>Wrapper to prepare and call solve functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Pablo Ortega.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

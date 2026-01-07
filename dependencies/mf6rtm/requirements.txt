@@ -1,0 +1,4 @@
+phreeqcrm==0.0.10
+flopy==3.7.0
+modflowapi==0.2.0
+toml

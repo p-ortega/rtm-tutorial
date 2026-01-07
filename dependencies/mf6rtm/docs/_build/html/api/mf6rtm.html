@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mf6rtm package &mdash; mf6rtm  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mf6rtm.config package" href="mf6rtm.config.html" />
+    <link rel="prev" title="mf6rtm" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mf6rtm
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">mf6rtm</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mf6rtm package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html">mf6rtm.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html">mf6rtm.io package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html">mf6rtm.mup3d package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html">mf6rtm.simulation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.utils.html">mf6rtm.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mf6rtm">Module contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mf6rtm.Mf6API"><code class="docutils literal notranslate"><span class="pre">Mf6API</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mf6rtm.Mf6RTM"><code class="docutils literal notranslate"><span class="pre">Mf6RTM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mf6rtm.PhreeqcBMI"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mf6rtm.run_cmd"><code class="docutils literal notranslate"><span class="pre">run_cmd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mf6rtm.solve"><code class="docutils literal notranslate"><span class="pre">solve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mf6rtm</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">mf6rtm</a></li>
+      <li class="breadcrumb-item active">mf6rtm package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/mf6rtm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mf6rtm-package">
+<h1>mf6rtm package<a class="headerlink" href="#mf6rtm-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Subpackages:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mf6rtm.config.html">mf6rtm.config package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.config.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.config.html#module-mf6rtm.config.config">mf6rtm.config.config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.ConfigSchema"><code class="docutils literal notranslate"><span class="pre">ConfigSchema</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.ConfigSchema.group"><code class="docutils literal notranslate"><span class="pre">ConfigSchema.group</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.ConfigSchema.toml_name"><code class="docutils literal notranslate"><span class="pre">ConfigSchema.toml_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.reaction_timing"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.reaction_timing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.tsteps"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.tsteps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.add_new_configuration"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.add_new_configuration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.from_dict"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.from_toml_file"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.from_toml_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.get_tsteps_for_period"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.get_tsteps_for_period()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.is_reaction_tstep"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.is_reaction_tstep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.save_to_file"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.save_to_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.config.MF6RTMConfig.to_dict"><code class="docutils literal notranslate"><span class="pre">MF6RTMConfig.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.config.html#module-mf6rtm.config.yaml_reader">mf6rtm.config.yaml_reader module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.config.html#mf6rtm.config.yaml_reader.load_yaml_to_phreeqcrm"><code class="docutils literal notranslate"><span class="pre">load_yaml_to_phreeqcrm()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mf6rtm.io.html">mf6rtm.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.io.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.io.html#module-mf6rtm.io.externalio">mf6rtm.io.externalio module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator"><code class="docutils literal notranslate"><span class="pre">Regenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.add_m0_to_config"><code class="docutils literal notranslate"><span class="pre">Regenerator.add_m0_to_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.generate_equilibrium_phases_blocks"><code class="docutils literal notranslate"><span class="pre">Regenerator.generate_equilibrium_phases_blocks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.generate_exchange_phases_blocks"><code class="docutils literal notranslate"><span class="pre">Regenerator.generate_exchange_phases_blocks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.generate_kinetic_phases_blocks"><code class="docutils literal notranslate"><span class="pre">Regenerator.generate_kinetic_phases_blocks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.generate_new_script"><code class="docutils literal notranslate"><span class="pre">Regenerator.generate_new_script()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.get_postfix_block"><code class="docutils literal notranslate"><span class="pre">Regenerator.get_postfix_block()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.get_solution_blocks"><code class="docutils literal notranslate"><span class="pre">Regenerator.get_solution_blocks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.read_external_files"><code class="docutils literal notranslate"><span class="pre">Regenerator.read_external_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.read_phinp"><code class="docutils literal notranslate"><span class="pre">Regenerator.read_phinp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.regenerate_from_external_files"><code class="docutils literal notranslate"><span class="pre">Regenerator.regenerate_from_external_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.update_yaml"><code class="docutils literal notranslate"><span class="pre">Regenerator.update_yaml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.validate_external_files"><code class="docutils literal notranslate"><span class="pre">Regenerator.validate_external_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.Regenerator.write_new_script"><code class="docutils literal notranslate"><span class="pre">Regenerator.write_new_script()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.SelectedOutput"><code class="docutils literal notranslate"><span class="pre">SelectedOutput</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.io.html#mf6rtm.io.externalio.SelectedOutput.write_ml_arrays"><code class="docutils literal notranslate"><span class="pre">SelectedOutput.write_ml_arrays()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.io.html#module-mf6rtm.io">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mf6rtm.mup3d.html">mf6rtm.mup3d package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.mup3d.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.mup3d.html#module-mf6rtm.mup3d.base">mf6rtm.mup3d.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block"><code class="docutils literal notranslate"><span class="pre">Block</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.data"><code class="docutils literal notranslate"><span class="pre">Block.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.names"><code class="docutils literal notranslate"><span class="pre">Block.names</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.ic"><code class="docutils literal notranslate"><span class="pre">Block.ic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.eq_solutions"><code class="docutils literal notranslate"><span class="pre">Block.eq_solutions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.options"><code class="docutils literal notranslate"><span class="pre">Block.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.get_names"><code class="docutils literal notranslate"><span class="pre">Block.get_names()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#id0"><code class="docutils literal notranslate"><span class="pre">Block.ic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.set_equilibrate_solutions"><code class="docutils literal notranslate"><span class="pre">Block.set_equilibrate_solutions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.set_ic"><code class="docutils literal notranslate"><span class="pre">Block.set_ic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Block.set_options"><code class="docutils literal notranslate"><span class="pre">Block.set_options()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.ChemStress"><code class="docutils literal notranslate"><span class="pre">ChemStress</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.ChemStress.packnme"><code class="docutils literal notranslate"><span class="pre">ChemStress.packnme</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.ChemStress.sol_spd"><code class="docutils literal notranslate"><span class="pre">ChemStress.sol_spd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.ChemStress.packtype"><code class="docutils literal notranslate"><span class="pre">ChemStress.packtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.ChemStress.set_packtype"><code class="docutils literal notranslate"><span class="pre">ChemStress.set_packtype()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.ChemStress.set_spd"><code class="docutils literal notranslate"><span class="pre">ChemStress.set_spd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.EquilibriumPhases"><code class="docutils literal notranslate"><span class="pre">EquilibriumPhases</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.EquilibriumPhases.parameters"><code class="docutils literal notranslate"><span class="pre">EquilibriumPhases.parameters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.ExchangePhases"><code class="docutils literal notranslate"><span class="pre">ExchangePhases</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.ExchangePhases.parameters"><code class="docutils literal notranslate"><span class="pre">ExchangePhases.parameters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.GasPhase"><code class="docutils literal notranslate"><span class="pre">GasPhase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.GasPhase.parameters"><code class="docutils literal notranslate"><span class="pre">GasPhase.parameters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.KineticPhases"><code class="docutils literal notranslate"><span class="pre">KineticPhases</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.KineticPhases.parameters"><code class="docutils literal notranslate"><span class="pre">KineticPhases.parameters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.KineticPhases.set_parameters"><code class="docutils literal notranslate"><span class="pre">KineticPhases.set_parameters()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.name"><code class="docutils literal notranslate"><span class="pre">Mup3d.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.wd"><code class="docutils literal notranslate"><span class="pre">Mup3d.wd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.charge_offset"><code class="docutils literal notranslate"><span class="pre">Mup3d.charge_offset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.database"><code class="docutils literal notranslate"><span class="pre">Mup3d.database</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.solutions"><code class="docutils literal notranslate"><span class="pre">Mup3d.solutions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.init_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.init_temp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.equilibrium_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.equilibrium_phases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.kinetic_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.kinetic_phases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.exchange_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.exchange_phases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.surfaces_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.surfaces_phases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.postfix"><code class="docutils literal notranslate"><span class="pre">Mup3d.postfix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.phreeqc_rm"><code class="docutils literal notranslate"><span class="pre">Mup3d.phreeqc_rm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.init_conc_array_phreeqc"><code class="docutils literal notranslate"><span class="pre">Mup3d.init_conc_array_phreeqc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.sconc"><code class="docutils literal notranslate"><span class="pre">Mup3d.sconc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.phinp"><code class="docutils literal notranslate"><span class="pre">Mup3d.phinp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.components"><code class="docutils literal notranslate"><span class="pre">Mup3d.components</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.fixed_components"><code class="docutils literal notranslate"><span class="pre">Mup3d.fixed_components</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.nlay"><code class="docutils literal notranslate"><span class="pre">Mup3d.nlay</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.nrow"><code class="docutils literal notranslate"><span class="pre">Mup3d.nrow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.ncol"><code class="docutils literal notranslate"><span class="pre">Mup3d.ncol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.nxyz"><code class="docutils literal notranslate"><span class="pre">Mup3d.nxyz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.grid_shape"><code class="docutils literal notranslate"><span class="pre">Mup3d.grid_shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.generate_phreeqc_script"><code class="docutils literal notranslate"><span class="pre">Mup3d.generate_phreeqc_script()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.get_componenth2o"><code class="docutils literal notranslate"><span class="pre">Mup3d.get_componenth2o()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.get_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.get_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.initialize"><code class="docutils literal notranslate"><span class="pre">Mup3d.initialize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.initialize_chem_stress"><code class="docutils literal notranslate"><span class="pre">Mup3d.initialize_chem_stress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.load_mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d.load_mup3d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.run"><code class="docutils literal notranslate"><span class="pre">Mup3d.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.save_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.save_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.save_mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d.save_mup3d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_charge_offset"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_charge_offset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_chem_stress"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_chem_stress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_componenth2o"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_componenth2o()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_database"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_database()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_equilibrium_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_equilibrium_phases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_exchange_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_exchange_phases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_fixed_components"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_fixed_components()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_initial_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_initial_temp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_phases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_postfix"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_postfix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_reaction_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_reaction_temp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.set_wd"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_wd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.write_external_files_layered"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_external_files_layered()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.write_internal_parameters"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_internal_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Mup3d.write_simulation"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_simulation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Solutions"><code class="docutils literal notranslate"><span class="pre">Solutions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Solutions.parameters"><code class="docutils literal notranslate"><span class="pre">Solutions.parameters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Surfaces"><code class="docutils literal notranslate"><span class="pre">Surfaces</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.Surfaces.parameters"><code class="docutils literal notranslate"><span class="pre">Surfaces.parameters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.base.working_dir"><code class="docutils literal notranslate"><span class="pre">working_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.mup3d.html#module-mf6rtm.mup3d">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.name"><code class="docutils literal notranslate"><span class="pre">Mup3d.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.wd"><code class="docutils literal notranslate"><span class="pre">Mup3d.wd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.charge_offset"><code class="docutils literal notranslate"><span class="pre">Mup3d.charge_offset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.database"><code class="docutils literal notranslate"><span class="pre">Mup3d.database</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.solutions"><code class="docutils literal notranslate"><span class="pre">Mup3d.solutions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.init_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.init_temp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.equilibrium_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.equilibrium_phases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.kinetic_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.kinetic_phases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.exchange_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.exchange_phases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.surfaces_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.surfaces_phases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.postfix"><code class="docutils literal notranslate"><span class="pre">Mup3d.postfix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.phreeqc_rm"><code class="docutils literal notranslate"><span class="pre">Mup3d.phreeqc_rm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.init_conc_array_phreeqc"><code class="docutils literal notranslate"><span class="pre">Mup3d.init_conc_array_phreeqc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.sconc"><code class="docutils literal notranslate"><span class="pre">Mup3d.sconc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.phinp"><code class="docutils literal notranslate"><span class="pre">Mup3d.phinp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.components"><code class="docutils literal notranslate"><span class="pre">Mup3d.components</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.fixed_components"><code class="docutils literal notranslate"><span class="pre">Mup3d.fixed_components</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.nlay"><code class="docutils literal notranslate"><span class="pre">Mup3d.nlay</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.nrow"><code class="docutils literal notranslate"><span class="pre">Mup3d.nrow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.ncol"><code class="docutils literal notranslate"><span class="pre">Mup3d.ncol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.nxyz"><code class="docutils literal notranslate"><span class="pre">Mup3d.nxyz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.grid_shape"><code class="docutils literal notranslate"><span class="pre">Mup3d.grid_shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.generate_phreeqc_script"><code class="docutils literal notranslate"><span class="pre">Mup3d.generate_phreeqc_script()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.get_componenth2o"><code class="docutils literal notranslate"><span class="pre">Mup3d.get_componenth2o()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.get_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.get_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.initialize"><code class="docutils literal notranslate"><span class="pre">Mup3d.initialize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.initialize_chem_stress"><code class="docutils literal notranslate"><span class="pre">Mup3d.initialize_chem_stress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.load_mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d.load_mup3d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.run"><code class="docutils literal notranslate"><span class="pre">Mup3d.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.save_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.save_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.save_mup3d"><code class="docutils literal notranslate"><span class="pre">Mup3d.save_mup3d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_charge_offset"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_charge_offset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_chem_stress"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_chem_stress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_componenth2o"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_componenth2o()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_config"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_database"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_database()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_equilibrium_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_equilibrium_phases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_exchange_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_exchange_phases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_fixed_components"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_fixed_components()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_initial_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_initial_temp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_phases"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_phases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_postfix"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_postfix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_reaction_temp"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_reaction_temp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.set_wd"><code class="docutils literal notranslate"><span class="pre">Mup3d.set_wd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.write_external_files_layered"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_external_files_layered()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.write_internal_parameters"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_internal_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.mup3d.html#mf6rtm.mup3d.Mup3d.write_simulation"><code class="docutils literal notranslate"><span class="pre">Mup3d.write_simulation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mf6rtm.simulation.html">mf6rtm.simulation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.simulation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.simulation.html#module-mf6rtm.simulation.discretization">mf6rtm.simulation.discretization module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.discretization.grid_dimensions"><code class="docutils literal notranslate"><span class="pre">grid_dimensions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.discretization.total_cells_in_grid"><code class="docutils literal notranslate"><span class="pre">total_cells_in_grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.simulation.html#module-mf6rtm.simulation.mf6api">mf6rtm.simulation.mf6api module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.mf6api.Mf6API"><code class="docutils literal notranslate"><span class="pre">Mf6API</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.mf6api.Mf6API.grid_type"><code class="docutils literal notranslate"><span class="pre">Mf6API.grid_type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.simulation.html#module-mf6rtm.simulation.phreeqcbmi">mf6rtm.simulation.phreeqcbmi module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI.get_grid_to_map"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI.get_grid_to_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.phreeqcbmi.PhreeqcBMI.set_scalar"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI.set_scalar()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.simulation.html#module-mf6rtm.simulation.solver">mf6rtm.simulation.solver module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM"><code class="docutils literal notranslate"><span class="pre">Mf6RTM</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.get_saturation_from_mf6"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.get_saturation_from_mf6()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.get_time_units_from_mf6"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.get_time_units_from_mf6()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.is_reactive_tstep"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.is_reactive_tstep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.print_warning_user_active"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.print_warning_user_active()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.set_emulator_output_add_variables"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_emulator_output_add_variables()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.set_emulator_training"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_emulator_training()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.set_kiter"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_kiter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.set_time_conversion"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_time_conversion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.Mf6RTM.solve"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.solve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.check_config_file"><code class="docutils literal notranslate"><span class="pre">check_config_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.check_nam_files"><code class="docutils literal notranslate"><span class="pre">check_nam_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.get_conc_change_mask"><code class="docutils literal notranslate"><span class="pre">get_conc_change_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.get_inactive_idx"><code class="docutils literal notranslate"><span class="pre">get_inactive_idx()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.get_less_than_zero_idx"><code class="docutils literal notranslate"><span class="pre">get_less_than_zero_idx()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.initialize_interfaces"><code class="docutils literal notranslate"><span class="pre">initialize_interfaces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.longest_common_substring"><code class="docutils literal notranslate"><span class="pre">longest_common_substring()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.mrbeaker"><code class="docutils literal notranslate"><span class="pre">mrbeaker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.prep_to_run"><code class="docutils literal notranslate"><span class="pre">prep_to_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.run_cmd"><code class="docutils literal notranslate"><span class="pre">run_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.set_nthread_yaml"><code class="docutils literal notranslate"><span class="pre">set_nthread_yaml()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solver.solve"><code class="docutils literal notranslate"><span class="pre">solve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.simulation.html#module-mf6rtm.simulation">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6API"><code class="docutils literal notranslate"><span class="pre">Mf6API</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6API.grid_type"><code class="docutils literal notranslate"><span class="pre">Mf6API.grid_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM"><code class="docutils literal notranslate"><span class="pre">Mf6RTM</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.get_saturation_from_mf6"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.get_saturation_from_mf6()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.get_time_units_from_mf6"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.get_time_units_from_mf6()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.is_reactive_tstep"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.is_reactive_tstep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.print_warning_user_active"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.print_warning_user_active()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.set_emulator_output_add_variables"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_emulator_output_add_variables()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.set_emulator_training"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_emulator_training()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.set_kiter"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_kiter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.set_time_conversion"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.set_time_conversion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.Mf6RTM.solve"><code class="docutils literal notranslate"><span class="pre">Mf6RTM.solve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.PhreeqcBMI"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.PhreeqcBMI.get_grid_to_map"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI.get_grid_to_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.PhreeqcBMI.set_scalar"><code class="docutils literal notranslate"><span class="pre">PhreeqcBMI.set_scalar()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.run_cmd"><code class="docutils literal notranslate"><span class="pre">run_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.simulation.html#mf6rtm.simulation.solve"><code class="docutils literal notranslate"><span class="pre">solve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mf6rtm.utils.html">mf6rtm.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.utils.html#module-mf6rtm.utils.utils">mf6rtm.utils.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.add_charge_flag_to_species_in_solution"><code class="docutils literal notranslate"><span class="pre">add_charge_flag_to_species_in_solution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.concentration_l_to_m3"><code class="docutils literal notranslate"><span class="pre">concentration_l_to_m3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.concentration_m3_to_l"><code class="docutils literal notranslate"><span class="pre">concentration_m3_to_l()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.concentration_to_massrate"><code class="docutils literal notranslate"><span class="pre">concentration_to_massrate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.concentration_volbulk_to_volwater"><code class="docutils literal notranslate"><span class="pre">concentration_volbulk_to_volwater()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.fill_missing_minerals"><code class="docutils literal notranslate"><span class="pre">fill_missing_minerals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.flatten_list"><code class="docutils literal notranslate"><span class="pre">flatten_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.generate_equ_phases_block"><code class="docutils literal notranslate"><span class="pre">generate_equ_phases_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.generate_exchange_block"><code class="docutils literal notranslate"><span class="pre">generate_exchange_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.generate_kinetics_block"><code class="docutils literal notranslate"><span class="pre">generate_kinetics_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.generate_solution_block"><code class="docutils literal notranslate"><span class="pre">generate_solution_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.generate_surface_block"><code class="docutils literal notranslate"><span class="pre">generate_surface_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.get_compound_names"><code class="docutils literal notranslate"><span class="pre">get_compound_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.get_indices"><code class="docutils literal notranslate"><span class="pre">get_indices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.handle_block"><code class="docutils literal notranslate"><span class="pre">handle_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.map_species_property_to_grid"><code class="docutils literal notranslate"><span class="pre">map_species_property_to_grid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.parse_equilibriums_dataframe"><code class="docutils literal notranslate"><span class="pre">parse_equilibriums_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.parse_kinetics_dataframe"><code class="docutils literal notranslate"><span class="pre">parse_kinetics_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.prep_bins"><code class="docutils literal notranslate"><span class="pre">prep_bins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.rearrange_copy_blocks"><code class="docutils literal notranslate"><span class="pre">rearrange_copy_blocks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.solution_csv_to_dict"><code class="docutils literal notranslate"><span class="pre">solution_csv_to_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.solution_df_to_dict"><code class="docutils literal notranslate"><span class="pre">solution_df_to_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mf6rtm.utils.html#mf6rtm.utils.utils.surfaces_csv_to_dict"><code class="docutils literal notranslate"><span class="pre">surfaces_csv_to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mf6rtm.utils.html#module-mf6rtm.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-mf6rtm">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mf6rtm" title="Link to this heading"></a></h2>
+<p>The MF6RTM (Modflow 6 Reactive Transport Model) package is a Python package
+for reactive transport modeling via the MODFLOW 6 and PhreeqcRM APIs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.Mf6API">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.</span></span><span class="sig-name descname"><span class="pre">Mf6API</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dll</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6API" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModflowApi</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="mf6rtm.Mf6API.grid_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grid_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mf6rtm.Mf6API.grid_type" title="Link to this definition"></a></dt>
+<dd><p>Grid type of the ModFlow6 model</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.</span></span><span class="sig-name descname"><span class="pre">Mf6RTM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mf6api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phreeqcbmi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.get_saturation_from_mf6">
+<span class="sig-name descname"><span class="pre">get_saturation_from_mf6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.get_saturation_from_mf6" title="Link to this definition"></a></dt>
+<dd><p>Get the saturation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>(</strong><strong>modflowapi</strong><strong>)</strong> (<em>mf6</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>array</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the saturation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.get_time_units_from_mf6">
+<span class="sig-name descname"><span class="pre">get_time_units_from_mf6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.get_time_units_from_mf6" title="Link to this definition"></a></dt>
+<dd><p>Function to get the time units from mf6</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.is_reactive_tstep">
+<span class="sig-name descname"><span class="pre">is_reactive_tstep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.is_reactive_tstep" title="Link to this definition"></a></dt>
+<dd><p>Check if the current timestep should be reactive based on configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if current timestep should be reactive, False otherwise</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.print_warning_user_active">
+<span class="sig-name descname"><span class="pre">print_warning_user_active</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.print_warning_user_active" title="Link to this definition"></a></dt>
+<dd><p>Prints a warning if reaction timing is set to ‘user’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.set_emulator_output_add_variables">
+<span class="sig-name descname"><span class="pre">set_emulator_output_add_variables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.set_emulator_output_add_variables" title="Link to this definition"></a></dt>
+<dd><p>Add emulator target and feature variables to the output.</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">selected_output</span></code> with variables defined in the configuration.
+Defaults to empty lists if not provided.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.selected_output.target_var">
+<span class="sig-prename descclassname"><span class="pre">selected_output.</span></span><span class="sig-name descname"><span class="pre">target_var</span></span><a class="headerlink" href="#mf6rtm.Mf6RTM.selected_output.target_var" title="Link to this definition"></a></dt>
+<dd><p>Target variables for emulator training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.selected_output.feat_var">
+<span class="sig-prename descclassname"><span class="pre">selected_output.</span></span><span class="sig-name descname"><span class="pre">feat_var</span></span><a class="headerlink" href="#mf6rtm.Mf6RTM.selected_output.feat_var" title="Link to this definition"></a></dt>
+<dd><p>Feature variables for emulator training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.set_emulator_training">
+<span class="sig-name descname"><span class="pre">set_emulator_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.set_emulator_training" title="Link to this definition"></a></dt>
+<dd><p>Configure emulator training output.</p>
+<p>Reads <code class="docutils literal notranslate"><span class="pre">emulator_training_data</span></code> from the configuration. If enabled,
+sets up emulator output variables; otherwise disables training data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.ml_output">
+<span class="sig-name descname"><span class="pre">ml_output</span></span><a class="headerlink" href="#mf6rtm.Mf6RTM.ml_output" title="Link to this definition"></a></dt>
+<dd><p>Whether emulator training data output is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.set_kiter">
+<span class="sig-name descname"><span class="pre">set_kiter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.set_kiter" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.set_time_conversion">
+<span class="sig-name descname"><span class="pre">set_time_conversion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.set_time_conversion" title="Link to this definition"></a></dt>
+<dd><p>Function to set the time conversion factor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.Mf6RTM.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.Mf6RTM.solve" title="Link to this definition"></a></dt>
+<dd><p>Solve the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mf6rtm.PhreeqcBMI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mf6rtm.</span></span><span class="sig-name descname"><span class="pre">PhreeqcBMI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yaml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mf6rtm.yaml'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.PhreeqcBMI" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BMIPhreeqcRM</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.PhreeqcBMI.get_grid_to_map">
+<span class="sig-name descname"><span class="pre">get_grid_to_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.PhreeqcBMI.get_grid_to_map" title="Link to this definition"></a></dt>
+<dd><p>Function to get grid to map</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mf6rtm.PhreeqcBMI.set_scalar">
+<span class="sig-name descname"><span class="pre">set_scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.PhreeqcBMI.set_scalar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.run_cmd">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.</span></span><span class="sig-name descname"><span class="pre">run_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.run_cmd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mf6rtm.solve">
+<span class="sig-prename descclassname"><span class="pre">mf6rtm.</span></span><span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reactive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mf6rtm.solve" title="Link to this definition"></a></dt>
+<dd><p>Wrapper to prepare and call solve functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="mf6rtm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mf6rtm.config.html" class="btn btn-neutral float-right" title="mf6rtm.config package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Pablo Ortega.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+name: rtm_gmdsi
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pandas>=2.0
+  - numpy>=1.25 
+  - matplotlib 
+  - jupyter 
+  - notebook 
+  - rtree
+  - pyproj>=2.0
+  - pyshp
+  - scikit-learn
+  - shapely
+  - openpyxl
+  - pip:
+      - -e ./dependencies/flopy
+      - -e ./dependencies/pyemu
+      - -e ./dependencies/mf6rtm
+      - pypestutils
