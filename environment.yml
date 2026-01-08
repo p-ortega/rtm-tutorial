@@ -8,7 +8,8 @@ dependencies:
   - numpy>=1.25 
   - matplotlib 
   - jupyter 
-  - notebook 
+  - notebook
+  - geopandas
   - rtree
   - pyproj>=2.0
   - pyshp
@@ -20,3 +21,4 @@ dependencies:
       - -e ./dependencies/pyemu
       - -e ./dependencies/mf6rtm
       - pypestutils
+      - vtk
