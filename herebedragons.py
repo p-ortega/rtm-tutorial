@@ -1,17 +1,74 @@
 import os
 from pathlib import Path
-import shutil
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import flopy
-import pyemu
+from collections.abc import Iterable
+from collections import defaultdict
 import geopandas as gpd
 from mf6rtm import mup3d, utils
 from flopy.utils.gridintersect import GridIntersect
 from shapely.geometry import LineString
 from pypestutils.pestutilslib import PestUtilsLib
 lib = PestUtilsLib()
+
+def create_output_pairs(perioddata, output_interval=5):
+    pairs = []
+    cumulative_day = 0
+    next_output_day = 0
+    
+    for kper, (perlen, nstp, tsmult) in enumerate(perioddata):
+        period_days = int(perlen)
+        
+        # Check each day in this stress period
+        for day_in_period in range(period_days):
+            if cumulative_day == next_output_day:
+                pairs.append((kper+1, day_in_period+1))
+                next_output_day += output_interval
+            
+            cumulative_day += 1
+    
+    return pairs
+
+def append_values_to_inner_lists(d, values, *, in_place=False):
+    """
+    Append a single value or all values from an iterable to every inner list
+    inside a {key: list[list]} dictionary.
+
+    Parameters
+    ----------
+    d : dict
+        Your nested list dictionary.
+    values : any or Iterable
+        * If `values` is not an Iterable (or is str/bytes), its treated as a
+          single item and appended once.
+        * If `values` is an Iterable (list/tuple/set/range), each element is
+          appended in order.
+    in_place : bool, default False
+        True  → modify `d` directly and return it.  
+        False → leave `d` unchanged and return a *new* dictionary.
+
+    Returns
+    -------
+    dict
+        The dictionary with updated inner lists.
+    """
+    # Decide whether to work on the original or a shallow copy
+    target = d if in_place else {k: [lst[:] for lst in v] for k, v in d.items()}
+
+    is_iterable = (
+        isinstance(values, Iterable) and
+        not isinstance(values, (str, bytes))  # treat strings/bytes as scalars
+    )
+
+    for outer in target.values():
+        for inner in outer:
+            if is_iterable:
+                inner.extend(values)   # add every element in order
+            else:
+                inner.append(values)   # add the single value
+    return target
 
 def get_wel_coords(gwf, name  = "wellin"):
     mg = gwf.modelgrid
@@ -25,10 +82,10 @@ def get_wel_coords(gwf, name  = "wellin"):
 
     assert len(geom)==1, f"more than one well with name {name} in wells.csv"
     cellid = ix.intersect(geom[0], 'point').cellids
-    fig, ax = plt.subplots(1, 1, figsize=(10, 6))
-    mg.plot(ax=ax)
-    ix.plot_point(ix.intersect(geom[0], 'point'), ax=ax)
-    print(cellid[0])
+    # fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+    # mg.plot(ax=ax)
+    # ix.plot_point(ix.intersect(geom[0], 'point'), ax=ax)
+    # print(cellid[0])
     return cellid[0]
 
 def make_stress_period_data(coords, rates, add_conc=True):
@@ -38,14 +95,94 @@ def make_stress_period_data(coords, rates, add_conc=True):
             ([cell, q] if add_conc else [cell, q])
             for cell, q in zip(coords, rates)
         ]
-    
-def make_wel_out(gwf, conservative_tracer = None, mup3d_m=None, wellname = "welout"):
 
-    nper = gwf.tdis.nper.get_data()
+
+def make_obs_pack(gwf):
+    ix = GridIntersect(gwf.modelgrid)
+    obsloc = pd.read_csv(os.path.join("data", "obs_loc.csv"))
+
+    obs_list=[]
+
+    for obsid in obsloc.obsid.unique():
+        x,y = obsloc.loc[obsloc.obsid==obsid,['x','y']].values[0]
+        cellid = ix.intersect([(x,y)],shapetype="point").cellids
+        if len(cellid)==0:
+            print(f"{obsid} not in model domain")
+            continue
+        else:
+            cellid = cellid[0]
+            print(f"{obsid} is in model domain") 
+        obs_layer = int(obsloc.loc[obsloc.obsid==obsid,'layer'].values[0])
+        obs_list.append((obsid, 'concentration', (obs_layer, cellid)))
+
+    # obs_recarray = {'obs.head.sim.csv':obs_list}
+    obs_recarray = {f'obs_{gwf.name}.csv':obs_list}
+    # print(obs_list)
+    obs_package = flopy.mf6.ModflowUtlobs(gwf, 
+                                        digits=0, #print_input=True,
+                                        pname=f'obs_{gwf.name}',
+                                        continuous=obs_recarray)
+    return obs_package
+
+def make_wel_in(gwf, conservative_tracer = None,
+                mup3d_m=None):
+    nper = 39
+    layers = [1,2,3,5,7]
+    # coords_in = {}
+    cellid = get_wel_coords(gwf, name  = "wellin")
+    coords_in = {lay: (lay, cellid) for lay in layers}
+
+    df_inj = pd.read_csv(os.path.join("data", "wellin.csv"))
+    wellin_sp_data = defaultdict(list)
+
+    if conservative_tracer is not None:
+        assert conservative_tracer in df_inj.columns, print("compound not in wellin csv")
+        #get all unique cells
+        for _, r in df_inj.iterrows():
+            layer = int(r["layer"])
+            cell = coords_in[layer]  # zero‑indexed
+            wellin_sp_data[int(r["kper"])].append([cell, r["rate"], r[f"{conservative_tracer}"]])
+        wel_in  = flopy.mf6.ModflowGwfwel(gwf, 
+                                       stress_period_data=wellin_sp_data,
+                                       auxiliary=conservative_tracer,
+                                       pname = 'welin',
+                                       filename=f'{gwf.name}.welin')
+        wel_in.set_all_data_external()
+
+    else:
+        wel_chem_dir = {}
+        indices = [list(range(i, i + 5)) for i in range(2, 197, 5)]
+        for per in range(nper):
+            sol_spd = indices[per]
+            wellchem = mup3d.ChemStress('per_'+str(per))
+            wellchem.set_spd(sol_spd)
+            mup3d_m.set_chem_stress(wellchem)
+            wel_chem_dir[per] = wellchem.data
+
+        for _, r in df_inj.iterrows():
+            layer = int(r["layer"])
+            cell = coords_in[layer]  # zero‑indexed
+            wellin_sp_data[int(r["kper"])].append([cell, r["rate"]])
+
+        for per in range(nper):
+            for e, layer in  enumerate(layers):
+                chem_arr = wel_chem_dir[per][e]
+                wellin_sp_data[per][e].extend(chem_arr)
+        wel_in  = flopy.mf6.ModflowGwfwel(gwf, 
+                                        stress_period_data=wellin_sp_data,
+                                        auxiliary=mup3d_m.components,
+                                        pname = 'welin',
+                                        filename=f'{gwf.name}.welin')
+        wel_in.set_all_data_external()
+        return wel_in
+
+def make_wel_out(gwf, conservative_tracer = None, mup3d_m=None, wellname = "wellout"):
+
+    nper = 39
     layers = [1,3,5]
     cellid = get_wel_coords(gwf, name  = wellname)
-    coords_out = [(lay, cellid[0], cellid[1]) for lay in layers]
-    print(coords_out)
+    coords_out = [(lay, cellid) for lay in layers]
+    # print(coords_out)
 
     init_rates_out  = [-300,  -30,  -30]                # 3 negatives
     fini_rates_out  = [-400,  -40,  -40]
@@ -116,15 +253,10 @@ def make_chd(gwf, conservative_tracer = None, mup3d_m=None):
     for i in range(nlay):          # layers
         for icpl in boundary_cells:      # rows
             chdspd.append([(i, icpl), l_hd])           # left boundary
-            # chdspd.append([(i, j, ncol - 1), l_hd])    # right boundary
-    # print(chdspd)
+
     for i in range(len(chdspd)):
         chdspd[i].extend(c_list)
 
-    left_line = LineString([(minx, miny), (minx, maxy)])
-    right_line = LineString([(maxx, miny), (maxx, maxy)])
-
-    # print(chdspd)
     chd = flopy.mf6.ModflowGwfchd(
         gwf,
         maxbound=len(chdspd),
