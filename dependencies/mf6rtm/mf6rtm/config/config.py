@@ -72,16 +72,19 @@ class MF6RTMConfig:
     def _validate_reaction_timing(self):
         """Validate reaction_timing parameter."""
         valid_options = ['all', 'user', 'adaptive']
-        if self.reactive_timing not in valid_options:
+        if self.reactive['timing'] not in valid_options:
             raise ValueError(f"reaction_timing must be one of {valid_options}, "
-                           f"got '{self.reactive_timing}'")
+                           f"got '{self.reactive['timing']}'")
 
     def _validate_tsteps(self):
         """Validate tsteps parameter."""
-        if not isinstance(self.reactive_tsteps, list):
+        if not isinstance(self.reactive['tsteps'], list):
             raise ValueError("tsteps must be a list")
+        # error if self.reactive_tsteps is empty and timing is 'user'
+        if self.reactive['timing'] == 'user' and len(self.reactive['tsteps']) == 0:
+            raise ValueError("tsteps cannot be empty when reaction_timing is 'user'")
         normalized = []
-        for i, tstep in enumerate(self.reactive_tsteps):
+        for i, tstep in enumerate(self.reactive['tsteps']):
             if not isinstance(tstep, (tuple, list)) or len(tstep) != 2:
                 raise ValueError(f"tsteps[{i}] must be a tuple/list of length 2")
 
@@ -153,6 +156,7 @@ class MF6RTMConfig:
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert configuration to dictionary for TOML output with nested structure."""
+
         result = {}
         category_prefixes = ['reactive_', 'emulator_']  # generalized prefixes
         category_groups = {prefix.rstrip('_'): {} for prefix in category_prefixes}
@@ -269,7 +273,6 @@ class MF6RTMConfig:
     @classmethod
     def from_dict(cls, config_dict: Dict[str, Any]) -> 'MF6RTMConfig':
         kwargs = {}
-
         def flatten_dict(d: Dict[str, Any], parent_key: str = '', sep: str = '_') -> Dict[str, Any]:
             items = []
             for k, v in d.items():
