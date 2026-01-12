@@ -13,6 +13,19 @@ from shapely.geometry import LineString
 from pypestutils.pestutilslib import PestUtilsLib
 lib = PestUtilsLib()
 
+def time_interpolate(sim_times, sim_vals, obs_times):
+    import numpy as np
+    from scipy import interpolate
+    t0 = min(sim_times)
+    sim_times = [(i-t0).astype(float) for i in sim_times]
+    obs_times = [(i-t0).astype(float) for i in obs_times]
+
+    # Create interpolation function
+    f = interpolate.interp1d(sim_times, sim_vals, fill_value='extrapolate')
+    # Interpolate at new times
+    new_values = f(obs_times)
+    return new_values
+
 def create_output_pairs(perioddata, output_interval=5):
     pairs = []
     cumulative_day = 0
