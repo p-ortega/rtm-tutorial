@@ -137,15 +137,17 @@ def make_obs_pack(gwf):
                                         continuous=obs_recarray)
     return obs_package
 
-def make_wel_in(gwf, conservative_tracer = None,
+def make_wel_in(sim, conservative_tracer = None,
                 mup3d_m=None):
-    nper = 39
+    nper = sim.tdis.nper.get_data()
+    gwf = sim.get_model("gwf")
     layers = [1,2,3,5,7]
     # coords_in = {}
     cellid = get_wel_coords(gwf, name  = "wellin")
     coords_in = {lay: (lay, cellid) for lay in layers}
 
     df_inj = pd.read_csv(os.path.join("data", "wellin.csv"))
+    df_inj = df_inj[df_inj.kper<nper].copy()
     wellin_sp_data = defaultdict(list)
 
     if conservative_tracer is not None:
@@ -187,11 +189,12 @@ def make_wel_in(gwf, conservative_tracer = None,
                                         pname = 'welin',
                                         filename=f'{gwf.name}.welin')
         wel_in.set_all_data_external()
-        return wel_in
+    return wellin_sp_data
 
-def make_wel_out(gwf, conservative_tracer = None, mup3d_m=None, wellname = "wellout"):
+def make_wel_out(sim, conservative_tracer = None, mup3d_m=None, wellname = "wellout"):
 
-    nper = 39
+    nper = sim.tdis.nper.get_data()
+    gwf = sim.get_model("gwf")
     layers = [1,3,5]
     cellid = get_wel_coords(gwf, name  = wellname)
     coords_out = [(lay, cellid) for lay in layers]
@@ -200,9 +203,11 @@ def make_wel_out(gwf, conservative_tracer = None, mup3d_m=None, wellname = "well
     init_rates_out  = [-300,  -30,  -30]                # 3 negatives
     fini_rates_out  = [-400,  -40,  -40]
 
-    init_sp = range(0, 35)   # stress periods 0 – 35
-    fini_sp = range(35, nper)  # stress periods 36 – 38
-    all_sp  = (*init_sp, *fini_sp)
+    init_sp = range(0, nper)   # stress periods 0 – 35
+    # fini_sp = range(35, nper)  # stress periods 36 – 38
+    all_sp  = (*init_sp, 
+            #    *fini_sp
+               )
 
     # Time‑invariant blocks for each phase
     wellout_init = {sp: make_stress_period_data(coords_out, init_rates_out) for sp in all_sp}
