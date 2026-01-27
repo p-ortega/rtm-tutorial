@@ -139,7 +139,8 @@ def make_obs_pack(gwf):
 
 def make_wel_in(sim, conservative_tracer = None,
                 mup3d_m=None):
-    nper = sim.tdis.nper.get_data()
+    nper_model = sim.tdis.nper.get_data()
+    # nper=39
     gwf = sim.get_model("gwf")
     layers = [1,2,3,5,7]
     # coords_in = {}
@@ -147,7 +148,10 @@ def make_wel_in(sim, conservative_tracer = None,
     coords_in = {lay: (lay, cellid) for lay in layers}
 
     df_inj = pd.read_csv(os.path.join("data", "wellin.csv"))
-    df_inj = df_inj[df_inj.kper<nper].copy()
+    df_inj = df_inj[df_inj.kper<nper_model].copy()
+    mask = df_inj.kper>int(nper_model/2)
+    df_inj.loc[mask, 'rate'] *= 10
+    nper = df_inj.kper.max()+1
     wellin_sp_data = defaultdict(list)
 
     if conservative_tracer is not None:
@@ -166,7 +170,14 @@ def make_wel_in(sim, conservative_tracer = None,
 
     else:
         wel_chem_dir = {}
-        indices = [list(range(i, i + 5)) for i in range(2, 197, 5)]
+        start_sol = 2
+        nlay = len(layers)
+        indices = [
+            list(range(start_sol + per * nlay,
+                    start_sol + (per + 1) * nlay))
+            for per in range(nper)
+            ]
+        # indices = [list(range(i, i + 5)) for i in range(2, 197, 5)]
         for per in range(nper):
             sol_spd = indices[per]
             wellchem = mup3d.ChemStress('per_'+str(per))
@@ -202,9 +213,10 @@ def make_wel_out(sim, conservative_tracer = None, mup3d_m=None, wellname = "well
 
     init_rates_out  = [-300,  -30,  -30]                # 3 negatives
     fini_rates_out  = [-400,  -40,  -40]
+    fini_rates_out  = [0,  0,  0]
 
-    init_sp = range(0, nper)   # stress periods 0 – 35
-    # fini_sp = range(35, nper)  # stress periods 36 – 38
+    init_sp = range(0, 20)   # stress periods 0 – 35
+    fini_sp = range(20, nper)  # stress periods 36 – 38
     all_sp  = (*init_sp, 
             #    *fini_sp
                )
@@ -231,6 +243,51 @@ def make_wel_out(sim, conservative_tracer = None, mup3d_m=None, wellname = "well
                                             auxiliary=mup3d_m.components,
                                             pname = 'welout',
                                             filename=f'{gwf.name}.welout')
+        
+        wel_out.set_all_data_external()
+    return wel_out
+
+
+def make_wel_opt(sim, conservative_tracer = None, mup3d_m=None, wellname = "wellopt"):
+
+    nper = sim.tdis.nper.get_data()
+    gwf = sim.get_model("gwf")
+    layers = [1,3,5]
+    cellid = get_wel_coords(gwf, name  = wellname)
+    coords_out = [(lay, cellid) for lay in layers]
+    # print(coords_out)
+
+    init_rates_out  = [-1400,  -140,  -140]                # 3 negatives
+    fini_rates_out  = [-1500,  -150,  -150]
+
+    init_sp = range(21, 39)   # stress periods 0 – 35
+    fini_sp = range(39, nper)  # stress periods 36 – 38
+    all_sp  = (*init_sp, 
+            #    *fini_sp
+               )
+
+    # Time‑invariant blocks for each phase
+    wellout_init = {sp: make_stress_period_data(coords_out, init_rates_out) for sp in all_sp}
+    wellout_fini = {sp: make_stress_period_data(coords_out, fini_rates_out, add_conc=True) 
+                    for sp in all_sp}
+    wellout_sp_data = {sp: (wellout_init[sp] if sp in init_sp else wellout_fini[sp])
+                for sp in all_sp}
+
+    if conservative_tracer is not None:
+        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, 0.0)
+        wel_out = flopy.mf6.ModflowGwfwel(gwf, 
+                                            stress_period_data=wellout_sp_data, 
+                                            auxiliary=conservative_tracer,
+                                            pname = 'welopt' ,
+                                            filename=f'{gwf.name}.welopt')
+        wel_out.set_all_data_external()
+    else:
+        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, [0.0]*len(mup3d_m.components))
+        wel_out = flopy.mf6.ModflowGwfwel(gwf, 
+                                            stress_period_data=wellout_sp_data, 
+                                            auxiliary=mup3d_m.components,
+                                            pname = 'welopt',
+                                            filename=f'{gwf.name}.welopt')
         
         wel_out.set_all_data_external()
     return wel_out
