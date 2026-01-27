@@ -1,16 +1,18 @@
 import os
-from pathlib import Path
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import flopy
+import platform
+import shutil
+import geopandas as gpd
+from pathlib import Path
 from collections.abc import Iterable
 from collections import defaultdict
-import geopandas as gpd
 from mf6rtm import mup3d, utils
 from flopy.utils.gridintersect import GridIntersect
 from shapely.geometry import LineString
 from pypestutils.pestutilslib import PestUtilsLib
+
 lib = PestUtilsLib()
 
 def time_interpolate(sim_times, sim_vals, obs_times):
@@ -431,3 +433,102 @@ def get_botms(gwf, ws):
                                         0)
         botms.append(np.round(result['targval'], 1))
     return botms
+
+def get_bins(local_dir):
+    #figure out if mac,lilnux or windows
+    if platform.system() == "Windows":
+        bin_dir = "win"
+    elif platform.system() == "Darwin":
+        bin_dir = "mac"
+    else:
+        bin_dir = "linux"
+    bindir = os.path.join("bin", bin_dir)
+
+    # copy all the exes to a local bin dir
+    if not os.path.exists(local_dir):
+        os.makedirs(local_dir)
+    for fname in os.listdir(bindir):
+        src = os.path.join(bindir, fname)
+        dst = os.path.join(local_dir, fname)
+        if os.path.isfile(dst):
+            os.remove(dst)
+        shutil.copy(src, dst)
+    return bindir
+
+def tidy_array(fpath):
+    # read unordered txt file
+    with open(fpath, 'r') as f:
+        data = f.read().split()
+    data = [float(x) for x in data]
+    arr = np.array(data)
+    arr = arr.flatten()
+    #arr = arr.reshape(sr.ncpl)
+    np.savetxt(fpath, arr, fmt='%1.6e')
+    return
+
+def get_input_filenames(tag, template_ws=os.path.join('pest','pst_template'), extension='.txt', startswith = False):
+    """
+    Get the input filenames from the template workspace
+
+    Parameters:
+        tag: str, tag to search for
+        template_ws: str, template workspace
+    """
+    if startswith:
+        files = [
+            f for f in os.listdir(template_ws)
+            if f.lower().startswith(tag) and f.endswith(extension)
+            ]   
+    
+    else:
+        files = [
+            f for f in os.listdir(template_ws)
+            if tag in f.lower() and f.endswith(extension)
+            ]
+    files = sorted(files, key=extract_layer_number)
+    return files 
+
+def extract_layer_number(filename):
+    import re
+    match = re.search(r'layer(\d+)', filename)
+    return int(match.group(1)) if match else float('inf')
+
+def copy_parameterized_transport_files(ws=".",
+                                parameterized_species="h2o",
+                                dsp_par =  [''], 
+                                mst_par = ['porosity']
+                                 ):
+
+    def flatten(xss):
+        return [x for xs in xss for x in xs]
+    
+    sim = flopy.mf6.MFSimulation.load(sim_ws=ws, verbosity_level=0)
+    species = sim.model_names[1:]
+    species.remove(parameterized_species)
+
+    tag = []
+
+    for e, par in enumerate(dsp_par):
+        tag.append(f"dsp_{par}_")
+
+    for  e, par in enumerate(mst_par):
+         tag.append(f"mst_{par}_")
+         
+    fnames_to_copy = [get_input_filenames(f"{parameterized_species}.{t}", template_ws=ws, startswith=True) for t in tag]
+    fnames_to_copy = flatten(fnames_to_copy)
+
+    print(
+        f"Warning: copying files with tag: {', '.join(tag)} from species: {parameterized_species.upper()} to the following species: "
+        f"{', '.join(sp.capitalize() for sp in species if sp != parameterized_species)}"
+    )
+
+    for sp in species:
+        fnames_to_replace = [get_input_filenames(f"{sp}.{t}", template_ws=ws, startswith=True) for t in tag]
+        fnames_to_replace = flatten(fnames_to_replace)
+        assert sorted([x.split('.')[1] for x in fnames_to_copy]) == sorted([x.split('.')[1] for x in fnames_to_replace]), f'list of files to replace and to copy does not contain the same files names '
+        # sort fnames_to_copy and fnames_to_replace according to the assert above
+        fnames_to_copy = [x for _, x in sorted(zip([x.split('.')[1] for x in fnames_to_copy], fnames_to_copy))]
+        fnames_to_replace = [x for _, x in sorted(zip([x.split('.')[1] for x in fnames_to_replace], fnames_to_replace))]
+        fileszipped = list(zip(fnames_to_copy, fnames_to_replace))
+        [shutil.copyfile(Path(ws, f[0]), Path(ws, f[1])) for f in fileszipped]
+    return fileszipped
