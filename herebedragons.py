@@ -532,3 +532,86 @@ def copy_parameterized_transport_files(ws=".",
         fileszipped = list(zip(fnames_to_copy, fnames_to_replace))
         [shutil.copyfile(Path(ws, f[0]), Path(ws, f[1])) for f in fileszipped]
     return fileszipped
+
+def node_to_layer_icell2d(nodes, ncpl):
+    """
+    nodes: array-like of MF6 node numbers (1-based)
+    ncpl: number of 2D cells per layer
+    Returns:
+      layer (1-based), icell2d (1-based)  [change to 0-based if you prefer]
+    """
+    nodes = np.asarray(nodes, dtype=int)
+    idx = nodes - 1  # to 0-based
+    layer0 = idx // ncpl
+    icell2d0 = idx % ncpl
+    return layer0, icell2d0
+
+def process_sim_conc(wd='.'):
+
+    sim = flopy.mf6.MFSimulation.load(sim_ws = wd,
+                                    sim_name = 'gwf', 
+                                    version='mf6',
+                                        exe_name='mf6',
+                                        verbosity_level=0)
+    gwf = sim.get_model("gwf")
+    sout = pd.read_csv(os.path.join(wd, "sout.csv"))
+    sout['cell'] += 1
+
+    layers, icell2ds = node_to_layer_icell2d(sout['cell'], gwf.disv.ncpl.get_data())
+    sout['layer'] = layers
+    sout['cell2d'] = icell2ds
+
+    ix = GridIntersect(gwf.modelgrid)
+    obsdata = pd.read_csv(os.path.join(wd, "obs_chem_cleaned.csv"))
+    obsdata.rename(columns={'var': 'variable'},  inplace=True)
+
+    obs_list={}
+
+    for obsid in obsdata.obsid.unique():
+        x,y = obsdata.loc[obsdata.obsid==obsid,['x','y']].values[0]
+        cellid = ix.intersect([(x,y)],shapetype="point").cellids
+        if len(cellid)==0:
+            continue
+        else:
+            obs_layer = int(obsdata.loc[obsdata.obsid==obsid,'layer'].values[0])
+            obs_list[obsid] = cellid[0]
+    obsdata['cell2d'] = obsdata['obsid'].map(obs_list)
+
+    missvar = set(obsdata['variable'].unique()) - set(sout.columns)
+    obs_ = sout[['time', 'cell2d', 'layer']+list(set(obsdata['variable'].unique())  - missvar)].copy()
+    obs_ = obs_.melt(id_vars = ['time', 'layer', 'cell2d'])
+    obs_ = obs_.merge(obsdata[['obsid', 'cell2d', 'layer']].drop_duplicates(), how = 'left')
+    obs_.dropna(subset='obsid', inplace=True)
+
+    dfmerged = pd.merge(obs_[['time', 'obsid','cell2d', 'layer', 'variable', 'value']],
+                        obsdata[['time', 'obsid','cell2d', 'layer', 'variable', 'value']],
+                        on=['time','obsid','cell2d', 'layer', 'variable'], how='outer')
+    dfmerged.rename(columns={'value_x':'sim',
+                            'value_y': 'meas'}, inplace=True)
+
+    dfmerged.sort_values(['obsid','time'], inplace=True)
+    dfmerged.set_index('time', inplace=True)
+
+    for oid in obs_.obsid.unique():
+        print(f"Processing obs for: {oid:>5}")
+        for var in obs_.variable.unique():
+            mask=(dfmerged.obsid==oid)&(dfmerged.variable==var)
+
+            tmp = dfmerged.loc[mask].copy()
+            tmp.dropna(subset=['sim'], inplace=True)
+            if tmp.shape[0]==0:
+                continue
+            obs_times = dfmerged.loc[mask].index.values
+            dfmerged.loc[mask,'sim'] = time_interpolate(tmp.index.values,
+                                                        tmp.sim.values,
+                                                        obs_times)
+
+    fname = '_obs.conc.simvsmeas.csv'
+    dfmerged = dfmerged.reset_index()
+    dfmerged.drop_duplicates(subset=['time', 'obsid', 'variable'], inplace=True)
+    dfmerged = dfmerged.set_index('time')
+    dfmerged[['layer', 'cell2d']] += 1 #back to 1-based
+    dfmerged.replace(np.nan,1e30).to_csv(os.path.join(wd, fname), float_format = "%.5e")
+    print(f"Processed conc saved in {wd}/{fname}")
+
+    return fname
