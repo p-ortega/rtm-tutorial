@@ -624,4 +624,4 @@ def process_sim_conc(wd='.'):
     dfmerged.replace(np.nan,1e30).to_csv(Path(wd, fname), float_format = "%.5e")
     print(f"Processed conc saved in {wd}/{fname}")
 
-    return fname
+    return fname, dfmerged
