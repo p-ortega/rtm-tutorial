@@ -9,7 +9,8 @@ USER_PUNCH
               pH pe \
               EQUI_Ferrihydrite EQUI_Orgmatter \
               MOL_CaX2 MOL_FeX2 MOL_KX MOL_MgX2 MOL_NaX \
-              KIN_Pyrite
+              KIN_Pyrite \
+              HCO3
     -start
     10 PUNCH TOTAL_TIME/86400
     11 PUNCH cell_no
@@ -20,5 +21,6 @@ USER_PUNCH
     60 PUNCH EQUI("Ferrihydrite"), EQUI("Orgmatter")
     70 PUNCH MOL("CaX2"), MOL("FeX2"), MOL("KX"), MOL("MgX2"), MOL("NaX")
     90 PUNCH KIN("Pyrite")
+    100 PUNCH MOL("HCO3-")
     -end
 END

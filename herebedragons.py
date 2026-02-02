@@ -28,22 +28,31 @@ def time_interpolate(sim_times, sim_vals, obs_times):
     new_values = f(obs_times)
     return new_values
 
-def create_output_pairs(perioddata, output_interval=5):
+def create_reactive_tsteps(perioddata, output_interval=5):
     pairs = []
     cumulative_day = 0
     next_output_day = 0
+
+    last_kper = None
+    last_day = None
     
     for kper, (perlen, nstp, tsmult) in enumerate(perioddata):
         period_days = int(perlen)
         
-        # Check each day in this stress period
         for day_in_period in range(period_days):
+            last_kper = kper + 1
+            last_day = day_in_period + 1
+
             if cumulative_day == next_output_day:
-                pairs.append((kper+1, day_in_period+1))
+                pairs.append((last_kper, last_day))
                 next_output_day += output_interval
             
             cumulative_day += 1
-    
+
+    # Ensure last kper, ktsp is always included
+    if pairs[-1] != (last_kper, last_day):
+        pairs.append((last_kper, last_day))
+
     return pairs
 
 def append_values_to_inner_lists(d, values, *, in_place=False):
@@ -495,7 +504,7 @@ def extract_layer_number(filename):
 
 def copy_parameterized_transport_files(ws=".",
                                 parameterized_species="h2o",
-                                dsp_par =  [''], 
+                                dsp_par =  [], 
                                 mst_par = ['porosity']
                                  ):
 
@@ -611,7 +620,8 @@ def process_sim_conc(wd='.'):
     dfmerged.drop_duplicates(subset=['time', 'obsid', 'variable'], inplace=True)
     dfmerged = dfmerged.set_index('time')
     dfmerged[['layer', 'cell2d']] += 1 #back to 1-based
-    dfmerged.replace(np.nan,1e30).to_csv(os.path.join(wd, fname), float_format = "%.5e")
+    dfmerged.dropna(subset=['variable'], inplace=True) #housekeeping for "fake obs"
+    dfmerged.replace(np.nan,1e30).to_csv(Path(wd, fname), float_format = "%.5e")
     print(f"Processed conc saved in {wd}/{fname}")
 
     return fname
