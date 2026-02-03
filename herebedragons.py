@@ -50,8 +50,8 @@ def create_reactive_tsteps(perioddata, output_interval=5):
             cumulative_day += 1
 
     # Ensure last kper, ktsp is always included
-    if pairs[-1] != (last_kper, last_day):
-        pairs.append((last_kper, last_day))
+    # if pairs[-1] != (last_kper, last_day):
+    #     pairs.append((last_kper, last_day))
 
     return pairs
 
@@ -504,7 +504,7 @@ def extract_layer_number(filename):
 
 def copy_parameterized_transport_files(ws=".",
                                 parameterized_species="h2o",
-                                dsp_par =  [], 
+                                dsp_par =  ['alh'], 
                                 mst_par = ['porosity']
                                  ):
 
