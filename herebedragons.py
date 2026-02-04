@@ -55,7 +55,7 @@ def create_reactive_tsteps(perioddata, output_interval=5):
 
     return pairs
 
-def append_values_to_inner_lists(d, values, *, in_place=False):
+def append_values_to_inner_lists(d, values, *, in_place=False, boundnme='wel'):
     """
     Append a single value or all values from an iterable to every inner list
     inside a {key: list[list]} dictionary.
@@ -89,9 +89,14 @@ def append_values_to_inner_lists(d, values, *, in_place=False):
     for outer in target.values():
         for inner in outer:
             if is_iterable:
+                # print(inner)
                 inner.extend(values)   # add every element in order
+                inner.extend([f"{boundnme}-ly{inner[0][0]}"])
             else:
+                # print(inner)
                 inner.append(values)   # add the single value
+                inner.append(f"{boundnme}-ly{inner[0][0]}")
+                # print(inner)
     return target
 
 def get_wel_coords(gwf, name  = "wellin"):
@@ -106,10 +111,7 @@ def get_wel_coords(gwf, name  = "wellin"):
 
     assert len(geom)==1, f"more than one well with name {name} in wells.csv"
     cellid = ix.intersect(geom[0], 'point').cellids
-    # fig, ax = plt.subplots(1, 1, figsize=(10, 6))
-    # mg.plot(ax=ax)
-    # ix.plot_point(ix.intersect(geom[0], 'point'), ax=ax)
-    # print(cellid[0])
+
     return cellid[0]
 
 def make_stress_period_data(coords, rates, add_conc=True):
@@ -119,7 +121,6 @@ def make_stress_period_data(coords, rates, add_conc=True):
             ([cell, q] if add_conc else [cell, q])
             for cell, q in zip(coords, rates)
         ]
-
 
 def make_obs_pack(gwf):
     ix = GridIntersect(gwf.modelgrid)
@@ -240,19 +241,23 @@ def make_wel_out(sim, conservative_tracer = None, mup3d_m=None, wellname = "well
                 for sp in all_sp}
 
     if conservative_tracer is not None:
-        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, 0.0)
+        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, 0.0, boundnme='welout')
+
         wel_out = flopy.mf6.ModflowGwfwel(gwf, 
                                             stress_period_data=wellout_sp_data, 
                                             auxiliary=conservative_tracer,
                                             pname = 'welout' ,
+                                            boundnames=True,
                                             filename=f'{gwf.name}.welout')
         wel_out.set_all_data_external()
     else:
-        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, [0.0]*len(mup3d_m.components))
+        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, [0.0]*len(mup3d_m.components), boundnme='welout')
+        # wellout_sp_data = 
         wel_out = flopy.mf6.ModflowGwfwel(gwf, 
                                             stress_period_data=wellout_sp_data, 
                                             auxiliary=mup3d_m.components,
                                             pname = 'welout',
+                                            boundnames=True,
                                             filename=f'{gwf.name}.welout')
         
         wel_out.set_all_data_external()
@@ -268,11 +273,11 @@ def make_wel_opt(sim, conservative_tracer = None, mup3d_m=None, wellname = "well
     coords_out = [(lay, cellid) for lay in layers]
     # print(coords_out)
 
-    init_rates_out  = [-1400,  -140,  -140]                # 3 negatives
-    fini_rates_out  = [-1500,  -150,  -150]
+    init_rates_out  = [-1300,  -300,  -300]                # 3 negatives
+    fini_rates_out  = [-1400,  -400,  -400]
 
-    init_sp = range(21, 39)   # stress periods 0 – 35
-    fini_sp = range(39, nper)  # stress periods 36 – 38
+    init_sp = range(21, nper)   # stress periods 0 – 35
+    # fini_sp = range(39, nper)  # stress periods 36 – 38
     all_sp  = (*init_sp, 
             #    *fini_sp
                )
@@ -285,20 +290,27 @@ def make_wel_opt(sim, conservative_tracer = None, mup3d_m=None, wellname = "well
                 for sp in all_sp}
 
     if conservative_tracer is not None:
-        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, 0.0)
+        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, 0.0,  boundnme='welopt')
         wel_out = flopy.mf6.ModflowGwfwel(gwf, 
                                             stress_period_data=wellout_sp_data, 
                                             auxiliary=conservative_tracer,
                                             pname = 'welopt' ,
+                                            boundnames=True,
                                             filename=f'{gwf.name}.welopt')
         wel_out.set_all_data_external()
     else:
-        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, [0.0]*len(mup3d_m.components))
+        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, [0.0]*len(mup3d_m.components),  boundnme='welopt')
         wel_out = flopy.mf6.ModflowGwfwel(gwf, 
                                             stress_period_data=wellout_sp_data, 
                                             auxiliary=mup3d_m.components,
                                             pname = 'welopt',
+                                            boundnames=True,
                                             filename=f'{gwf.name}.welopt')
+        # welred_obslist = [(i, "wel-reduction", )]
+        # obslist = [(i, "WEL", i) for i in well_loc.obs_id.unique()]
+        # _obs = {(f'{gwf.name}.obs.welred.opt.csv'):welred_obslist,
+        #         (f'{gwf.name}.obs.wel.opt.csv'):obslist,}
+        # wel_out.obs.initialize(digits=10, print_input=False,continuous=_obs)
         
         wel_out.set_all_data_external()
     return wel_out
