@@ -453,7 +453,6 @@ def map_species_property_to_grid(data_dict, ic_array, species, property_key):
     output = np.zeros_like(ic_array, dtype=float)
 
     for zone_idx, species_dict in data_dict.items():
-        # print(zone_idx, species_dict)
         if species not in species_dict:
             raise KeyError(f"Species '{species}' not found in block id {zone_idx}")
         if property_key not in species_dict[species]:
@@ -702,18 +701,21 @@ def rearrange_copy_blocks(script):
 
     return rearranged_script
 
-def prep_bins(dest_path, src_path=os.path.join("bin"), get_only=[]):
+def prep_bins(dest_path, src_path=os.path.join("bin"), get_only=[], add_platform=True):
     """Copy executables from the source path to the destination path"""
 
-    if "linux" in platform.platform().lower():
-        bin_path = os.path.join(src_path, "linux")
-    elif (
-        "darwin" in platform.platform().lower()
-        or "macos" in platform.platform().lower()
-    ):
-        bin_path = os.path.join(src_path, "mac")
+    if add_platform:
+        if "linux" in platform.platform().lower():
+            bin_path = os.path.join(src_path, "linux")
+        elif (
+            "darwin" in platform.platform().lower()
+            or "macos" in platform.platform().lower()
+        ):
+            bin_path = os.path.join(src_path, "mac")
+        else:
+            bin_path = os.path.join(src_path, "win")
     else:
-        bin_path = os.path.join(src_path, "win")
+        bin_path = src_path
     files = os.listdir(bin_path)
     if len(get_only) > 0:
         files = [f for f in files if f.split(".")[0] in get_only]
