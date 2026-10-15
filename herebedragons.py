@@ -480,6 +480,9 @@ def process_sim_conc(wd='.'):
             obs_list[obsid] = cellid[0]
     obsdata['cell2d'] = obsdata['obsid'].map(obs_list)
 
+    # keep only the observed cells before melting; melting every cell needs ~7 GB per worker
+    sout = sout.merge(obsdata[['layer', 'cell2d']].dropna().drop_duplicates().astype(int), on=['layer', 'cell2d'])
+
     missvar = set(obsdata['variable'].unique()) - set(sout.columns)
     obs_ = sout[['time', 'cell2d', 'layer']+list(set(obsdata['variable'].unique())  - missvar)].copy()
     obs_ = obs_.melt(id_vars = ['time', 'layer', 'cell2d'])
