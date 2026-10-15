@@ -8,7 +8,6 @@ import geopandas as gpd
 from pathlib import Path
 from collections.abc import Iterable
 from collections import defaultdict
-from mf6rtm import mup3d, utils
 from flopy.utils.gridintersect import GridIntersect
 from shapely.geometry import LineString
 from pypestutils.pestutilslib import PestUtilsLib
@@ -149,13 +148,11 @@ def make_obs_pack(gwf):
                                         continuous=obs_recarray)
     return obs_package
 
-def make_wel_in(sim, conservative_tracer = None,
-                mup3d_m=None):
+def make_wel_in(sim, tracer='Cl'):
+    """Injection well; the 'tracer' aux carries `tracer` from wellin.csv."""
     nper_model = sim.tdis.nper.get_data()
-    # nper=39
     gwf = sim.get_model("gwf")
     layers = [1,2,3,5,7]
-    # coords_in = {}
     cellid = get_wel_coords(gwf, name  = "wellin")
     coords_in = {lay: (lay, cellid) for lay in layers}
 
@@ -163,160 +160,64 @@ def make_wel_in(sim, conservative_tracer = None,
     df_inj = df_inj[df_inj.kper<nper_model].copy()
     mask = df_inj.kper>int(nper_model/2)
     df_inj.loc[mask, 'rate'] *= 10
-    nper = df_inj.kper.max()+1
+    assert tracer in df_inj.columns, f"{tracer} not in wellin csv"
+
+    # records sorted by layer so the n-th record is the n-th screen in `layers`
+    df_inj = df_inj.sort_values(['kper', 'layer'])
     wellin_sp_data = defaultdict(list)
-
-    if conservative_tracer is not None:
-        assert conservative_tracer in df_inj.columns, print("compound not in wellin csv")
-        #get all unique cells
-        for _, r in df_inj.iterrows():
-            layer = int(r["layer"])
-            cell = coords_in[layer]  # zero‑indexed
-            wellin_sp_data[int(r["kper"])].append([cell, r["rate"], r[f"{conservative_tracer}"]])
-        wel_in  = flopy.mf6.ModflowGwfwel(gwf, 
-                                       stress_period_data=wellin_sp_data,
-                                       auxiliary=conservative_tracer,
-                                       pname = 'welin',
-                                       filename=f'{gwf.name}.welin')
-        wel_in.set_all_data_external()
-
-    else:
-        wel_chem_dir = {}
-        start_sol = 2
-        nlay = len(layers)
-        indices = [
-            list(range(start_sol + per * nlay,
-                    start_sol + (per + 1) * nlay))
-            for per in range(nper)
-            ]
-        # indices = [list(range(i, i + 5)) for i in range(2, 197, 5)]
-        for per in range(nper):
-            sol_spd = indices[per]
-            wellchem = mup3d.ChemStress('per_'+str(per))
-            wellchem.set_spd(sol_spd)
-            mup3d_m.set_chem_stress(wellchem)
-            wel_chem_dir[per] = wellchem.data
-
-        for _, r in df_inj.iterrows():
-            layer = int(r["layer"])
-            cell = coords_in[layer]  # zero‑indexed
-            wellin_sp_data[int(r["kper"])].append([cell, r["rate"]])
-
-        for per in range(nper):
-            for e, layer in  enumerate(layers):
-                chem_arr = wel_chem_dir[per][e]
-                wellin_sp_data[per][e].extend(chem_arr)
-        wel_in  = flopy.mf6.ModflowGwfwel(gwf, 
-                                        stress_period_data=wellin_sp_data,
-                                        auxiliary=mup3d_m.components,
-                                        pname = 'welin',
-                                        filename=f'{gwf.name}.welin')
-        wel_in.set_all_data_external()
+    for _, r in df_inj.iterrows():
+        cell = coords_in[int(r["layer"])]  # zero-indexed
+        wellin_sp_data[int(r["kper"])].append([cell, r["rate"], r[tracer]])
+    wel_in  = flopy.mf6.ModflowGwfwel(gwf,
+                                   stress_period_data=wellin_sp_data,
+                                   auxiliary='tracer',
+                                   pname = 'welin',
+                                   filename=f'{gwf.name}.welin')
+    wel_in.set_all_data_external()
     return wellin_sp_data
 
-def make_wel_out(sim, conservative_tracer = None, mup3d_m=None, wellname = "wellout"):
+def make_wel_out(sim, wellname = "wellout"):
+    """Extraction well on from stress period 0 to 19."""
+    gwf = sim.get_model("gwf")
+    layers = [1,3,5]
+    cellid = get_wel_coords(gwf, name  = wellname)
+    coords_out = [(lay, cellid) for lay in layers]
+    rates_out  = [-300,  -30,  -30]
 
+    wellout_sp_data = {sp: make_stress_period_data(coords_out, rates_out) for sp in range(0, 20)}
+    # extraction takes the cell concentration, so the aux value is never used
+    wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, 0.0, boundnme='welout')
+    wel_out = flopy.mf6.ModflowGwfwel(gwf,
+                                        stress_period_data=wellout_sp_data,
+                                        auxiliary='tracer',
+                                        pname = 'welout',
+                                        boundnames=True,
+                                        filename=f'{gwf.name}.welout')
+    wel_out.set_all_data_external()
+    return wel_out
+
+def make_wel_opt(sim, wellname = "wellopt"):
+    """Extraction well on from stress period 21 to the end; the supply well."""
     nper = sim.tdis.nper.get_data()
     gwf = sim.get_model("gwf")
     layers = [1,3,5]
     cellid = get_wel_coords(gwf, name  = wellname)
     coords_out = [(lay, cellid) for lay in layers]
-    # print(coords_out)
+    rates_out  = [-1300,  -300,  -300]
 
-    init_rates_out  = [-300,  -30,  -30]                # 3 negatives
-    fini_rates_out  = [-400,  -40,  -40]
-    fini_rates_out  = [0,  0,  0]
+    wellopt_sp_data = {sp: make_stress_period_data(coords_out, rates_out) for sp in range(21, nper)}
+    wellopt_sp_data = append_values_to_inner_lists(wellopt_sp_data, 0.0,  boundnme='welopt')
+    wel_opt = flopy.mf6.ModflowGwfwel(gwf,
+                                        stress_period_data=wellopt_sp_data,
+                                        auxiliary='tracer',
+                                        pname = 'welopt',
+                                        boundnames=True,
+                                        filename=f'{gwf.name}.welopt')
+    wel_opt.set_all_data_external()
+    return wel_opt
 
-    init_sp = range(0, 20)   # stress periods 0 – 35
-    fini_sp = range(20, nper)  # stress periods 36 – 38
-    all_sp  = (*init_sp, 
-            #    *fini_sp
-               )
-
-    # Time‑invariant blocks for each phase
-    wellout_init = {sp: make_stress_period_data(coords_out, init_rates_out) for sp in all_sp}
-    wellout_fini = {sp: make_stress_period_data(coords_out, fini_rates_out, add_conc=True) 
-                    for sp in all_sp}
-    wellout_sp_data = {sp: (wellout_init[sp] if sp in init_sp else wellout_fini[sp])
-                for sp in all_sp}
-
-    if conservative_tracer is not None:
-        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, 0.0, boundnme='welout')
-
-        wel_out = flopy.mf6.ModflowGwfwel(gwf, 
-                                            stress_period_data=wellout_sp_data, 
-                                            auxiliary=conservative_tracer,
-                                            pname = 'welout' ,
-                                            boundnames=True,
-                                            filename=f'{gwf.name}.welout')
-        wel_out.set_all_data_external()
-    else:
-        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, [0.0]*len(mup3d_m.components), boundnme='welout')
-        # wellout_sp_data = 
-        wel_out = flopy.mf6.ModflowGwfwel(gwf, 
-                                            stress_period_data=wellout_sp_data, 
-                                            auxiliary=mup3d_m.components,
-                                            pname = 'welout',
-                                            boundnames=True,
-                                            filename=f'{gwf.name}.welout')
-        
-        wel_out.set_all_data_external()
-    return wel_out
-
-
-def make_wel_opt(sim, conservative_tracer = None, mup3d_m=None, wellname = "wellopt"):
-
-    nper = sim.tdis.nper.get_data()
-    gwf = sim.get_model("gwf")
-    layers = [1,3,5]
-    cellid = get_wel_coords(gwf, name  = wellname)
-    coords_out = [(lay, cellid) for lay in layers]
-    # print(coords_out)
-
-    init_rates_out  = [-1300,  -300,  -300]                # 3 negatives
-    fini_rates_out  = [-1400,  -400,  -400]
-
-    init_sp = range(21, nper)   # stress periods 0 – 35
-    # fini_sp = range(39, nper)  # stress periods 36 – 38
-    all_sp  = (*init_sp, 
-            #    *fini_sp
-               )
-
-    # Time‑invariant blocks for each phase
-    wellout_init = {sp: make_stress_period_data(coords_out, init_rates_out) for sp in all_sp}
-    wellout_fini = {sp: make_stress_period_data(coords_out, fini_rates_out, add_conc=True) 
-                    for sp in all_sp}
-    wellout_sp_data = {sp: (wellout_init[sp] if sp in init_sp else wellout_fini[sp])
-                for sp in all_sp}
-
-    if conservative_tracer is not None:
-        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, 0.0,  boundnme='welopt')
-        wel_out = flopy.mf6.ModflowGwfwel(gwf, 
-                                            stress_period_data=wellout_sp_data, 
-                                            auxiliary=conservative_tracer,
-                                            pname = 'welopt' ,
-                                            boundnames=True,
-                                            filename=f'{gwf.name}.welopt')
-        wel_out.set_all_data_external()
-    else:
-        wellout_sp_data = append_values_to_inner_lists(wellout_sp_data, [0.0]*len(mup3d_m.components),  boundnme='welopt')
-        wel_out = flopy.mf6.ModflowGwfwel(gwf, 
-                                            stress_period_data=wellout_sp_data, 
-                                            auxiliary=mup3d_m.components,
-                                            pname = 'welopt',
-                                            boundnames=True,
-                                            filename=f'{gwf.name}.welopt')
-        # welred_obslist = [(i, "wel-reduction", )]
-        # obslist = [(i, "WEL", i) for i in well_loc.obs_id.unique()]
-        # _obs = {(f'{gwf.name}.obs.welred.opt.csv'):welred_obslist,
-        #         (f'{gwf.name}.obs.wel.opt.csv'):obslist,}
-        # wel_out.obs.initialize(digits=10, print_input=False,continuous=_obs)
-        
-        wel_out.set_all_data_external()
-    return wel_out
-
-def make_chd(gwf, conservative_tracer = None, mup3d_m=None):
-    
+def make_chd(gwf, tracer='Cl'):
+    """Constant heads on the left and right edges; the 'tracer' aux carries the background `tracer`."""
     l_hd= 0
     domain = gpd.read_file(Path('data', 'domain.gpkg'))
     geom = domain.dissolve().geometry[0]
@@ -325,43 +226,24 @@ def make_chd(gwf, conservative_tracer = None, mup3d_m=None):
     right_boundary = LineString([(maxx, miny), (maxx-0.1, maxy)])
 
     ix = GridIntersect(gwf.modelgrid)
-    left_cells = ix.intersect(left_boundary, 'line').cellids.tolist()
-    right_cells = ix.intersect(right_boundary, 'line').cellids.tolist()
-    left_cells.extend(right_cells)
-    boundary_cells = left_cells
+    boundary_cells = ix.intersect(left_boundary, 'line').cellids.tolist()
+    boundary_cells.extend(ix.intersect(right_boundary, 'line').cellids.tolist())
 
     nlay = gwf.dis.nlay.get_data()
-    ncpl = gwf.dis.ncpl.get_data()
 
-    if conservative_tracer is not None:
-        df_inj = pd.read_csv(os.path.join("data", "ic_aq_chem.csv"), index_col=0)
-        assert conservative_tracer in df_inj.index, f"compound {conservative_tracer} not in ic_aq_chem csv"
-        c_list = [df_inj.loc[conservative_tracer, 'value']]
-        aux = conservative_tracer
-        # print(c_list)
-    else:
-        chdchem = mup3d.ChemStress('chdchem')
-        sol_spd = [1]
-        chdchem.set_spd(sol_spd)
-        mup3d_m.set_chem_stress(chdchem)
-        c_list = mup3d_m.chdchem.data[0]
-        aux=mup3d_m.components
+    df_ic = pd.read_csv(os.path.join("data", "ic_aq_chem.csv"), index_col=0)
+    assert tracer in df_ic.index, f"{tracer} not in ic_aq_chem csv"
+    c_bg = df_ic.loc[tracer, 'value']
 
-    chdspd = []
-    for i in range(nlay):          # layers
-        for icpl in boundary_cells:      # rows
-            chdspd.append([(i, icpl), l_hd])           # left boundary
-
-    for i in range(len(chdspd)):
-        chdspd[i].extend(c_list)
+    chdspd = [[(i, icpl), l_hd, c_bg] for i in range(nlay) for icpl in boundary_cells]
 
     chd = flopy.mf6.ModflowGwfchd(
         gwf,
         maxbound=len(chdspd),
         stress_period_data=chdspd,
         save_flows=True,
-        auxiliary=aux,
-        pname="CHD",
+        auxiliary='tracer',
+        pname="chd",
         filename=f"{gwf.name}.chd",
     )
     chd.set_all_data_external()
@@ -575,8 +457,8 @@ def process_sim_conc(wd='.'):
                                         exe_name='mf6',
                                         verbosity_level=0)
     gwf = sim.get_model("gwf")
+    # mf6rtm writes 'cell' as the 1-based MF6 node number
     sout = pd.read_csv(os.path.join(wd, "sout.csv"))
-    sout['cell'] += 1
 
     layers, icell2ds = node_to_layer_icell2d(sout['cell'], gwf.disv.ncpl.get_data())
     sout['layer'] = layers
