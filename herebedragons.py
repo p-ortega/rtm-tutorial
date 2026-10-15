@@ -519,3 +519,41 @@ def process_sim_conc(wd='.'):
     print(f"Processed conc saved in {wd}/{fname}")
 
     return fname, dfmerged
+def process_welopt(wd='.'):
+    """Pumped rate per welopt screen and peak SO4 in the pumped water, for the decision variables and forecasts."""
+    import glob, re
+    files = sorted(glob.glob(os.path.join(wd, "gwf.welopt_stress_period_data_*.txt")),
+                   key=lambda f: int(re.search(r"_(\d+)\.txt$", f).group(1)))
+    # one multiplier per screen applies to every period, so the first file holds the rates
+    wel = pd.read_csv(files[0], sep=r"\s+", header=None, names=["layer", "cell2d", "q", "aux", "screen"])
+    wel["q"] = -wel["q"]
+    first_kper = int(re.search(r"_(\d+)\.txt$", files[0]).group(1))  # 1-based
+
+    with open(os.path.join(wd, "gwf.tdis")) as f:
+        block = f.read().lower().split("begin perioddata")[1].split("end perioddata")[0]
+    perlen = [float(l.split()[0]) for l in block.strip().splitlines()]
+    t_on = sum(perlen[:first_kper - 1])
+
+    sout = pd.read_csv(os.path.join(wd, "sout.csv"), usecols=["time", "layer", "cell2d", "SO4"])
+    sout = sout[sout.time > t_on]
+    conc = {}
+    for _, w in wel.iterrows():
+        conc[w.screen] = sout.loc[(sout.layer == w.layer) & (sout.cell2d == w.cell2d)].set_index("time").SO4
+    conc = pd.DataFrame(conc)
+    # extracted water leaves at the cell concentration, so the blend is the rate-weighted mean
+    blend = (conc * wel.set_index("screen").q).sum(axis=1) / wel.q.sum()
+
+    fc = pd.Series({f"so4peak_{s}": conc[s].max() for s in conc.columns})
+    fc["so4peak_blend"] = blend.max()
+    rates = wel.set_index("screen").q.rename("q")
+    rates.to_csv(os.path.join(wd, "_welopt.rates.csv"), float_format="%.6e")
+    fc.rename("value").rename_axis("forecast").to_csv(os.path.join(wd, "_welopt.so4peak.csv"), float_format="%.6e")
+    return rates, fc
+
+def thin_conc_obs(wd='.', every=7):
+    """Keep simulated concentrations at field-sample times plus every `every` days, so PEST tracks far fewer values."""
+    df = pd.read_csv(os.path.join(wd, '_obs.conc.simvsmeas.csv'))
+    keep = (df.meas < 1e29) | np.isclose(df.time % every, 0)
+    fname = '_obs.conc.pst.csv'
+    df.loc[keep].to_csv(os.path.join(wd, fname), index=False, float_format="%.5e")
+    return fname, df.loc[keep]
