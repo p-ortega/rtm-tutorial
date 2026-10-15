@@ -35,5 +35,5 @@ dependencies:
       - pyemu==1.7.0
       - pypestutils==0.3.0
       - vorflow==0.2.0
-      # develop has the kinetics time-step fix that the 0.5.2 release lacks
-      - mf6rtm @ git+https://github.com/p-ortega/mf6rtm.git@ea9d1a7c018dd9fed196280918937dbd605538ca
+      # develop after PR #98: kinetics react over the time since the last reaction step under timing=user
+      - mf6rtm @ git+https://github.com/p-ortega/mf6rtm.git@df1c88804fb21ac1c53c0471dd01a57109352251
