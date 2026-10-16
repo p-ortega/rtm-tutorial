@@ -560,3 +560,18 @@ def thin_conc_obs(wd='.', every=7):
     fname = '_obs.conc.pst.csv'
     df.loc[keep].to_csv(os.path.join(wd, fname), index=False, float_format="%.5e")
     return fname, df.loc[keep]
+
+def choose_truth(oe, forecast, q=0.9):
+    """Realisation whose forecast sits closest to quantile q of the prior; 'base' is left out."""
+    fc = oe.loc[oe.index != "base", forecast]
+    return (fc - fc.quantile(q)).abs().idxmin()
+
+def sampled_obs(pst, wd):
+    """Names of the concentration observations that have a field sample behind them."""
+    df = pd.read_csv(os.path.join(wd, "_obs.conc.pst.csv"))
+    df = df[df.meas < 1e29]
+    key = df.obsid + "|" + df.variable.str.lower() + "|" + df.time.astype(float).round(5).astype(str)
+    obs = pst.observation_data
+    obs = obs.loc[obs.obgnme == "conc"]
+    okey = obs.obsid + "|" + obs.variable + "|" + obs.time.astype(float).round(5).astype(str)
+    return obs.loc[okey.isin(set(key)), "obsnme"].tolist()
