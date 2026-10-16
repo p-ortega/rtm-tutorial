@@ -2,23 +2,38 @@ name: rtm_gmdsi
 channels:
   - conda-forge
 dependencies:
-  - python=3.12
-  - pip
-  - pandas>=2.0
-  - numpy>=1.25 
-  - matplotlib 
-  - jupyter 
-  - notebook
-  - geopandas
-  - rtree
-  - pyproj>=2.0
-  - pyshp
-  - scikit-learn
-  - shapely
-  - openpyxl
+  - python=3.12.15
+  - pip=26.2.1
+  - pandas=2.3.3
+  # pyemu 1.7.0 needs numpy<2.3.2 on linux
+  - numpy=2.3.1
+  - scipy=1.18.1
+  - matplotlib=3.11.2
+  - jupyter=1.1.1
+  - notebook=7.6.3
+  - ipywidgets=8.1.9
+  - geopandas=1.2.0
+  - rtree=1.4.1
+  - pyproj=3.8.0
+  - pyshp=3.1.6
+  - shapely=2.2.0
+  - scikit-learn=1.9.1
+  - openpyxl=3.1.5
+  - jinja2=3.1.6
+  - h5py=3.16.0
+  - flopy=3.11.0
+  - modflowapi=1.0.1
+  - phreeqcrm=0.0.20
+  # 24 shares its abseil build with conda-forge tensorflow (04_dsiae); 25 segfaults next to it
+  - pyarrow=24.0.0
+  - pyyaml=6.0.3
+  - toml=0.10.2
+  - pillow=12.3.0
+  - gmsh=4.15.2
+  - python-gmsh=4.15.2
   - pip:
-      - -e ./dependencies/flopy
-      - -e ./dependencies/pyemu
-      - -e ./dependencies/mf6rtm
-      - pypestutils
-      - vtk
+      - pyemu==1.7.0
+      - pypestutils==0.3.0
+      - vorflow==0.2.0
+      # develop after PR #98: kinetics react over the time since the last reaction step under timing=user
+      - mf6rtm @ git+https://github.com/p-ortega/mf6rtm.git@df1c88804fb21ac1c53c0471dd01a57109352251

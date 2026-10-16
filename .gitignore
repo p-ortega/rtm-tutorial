@@ -4,9 +4,12 @@ __pycache__/
 *.vscode
 *Pst
 model/
+model_cons/
 pest*
 pst*
 prior*/
 master*/
 worker*
 tmp/
+# planning and handoff notes
+.docs/
